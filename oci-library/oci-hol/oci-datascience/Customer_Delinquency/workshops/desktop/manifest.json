@@ -1,0 +1,41 @@
+{
+  "workshoptitle": "Customer Delinquency Workshop",
+  "help": "livelabs-help-**enterarea**_us@oracle.com",
+  "tutorials": [
+    {
+      "title": "Introduction",
+      "description": "The Introduction is always second for LiveLabs. The title and contents menu title match for the Introduction.",
+      "filename": "../../introduction/introduction.md"
+    },
+    {
+      "title": "Lab 1: Setting Up",
+      "filename": "../../Setting_Up/Setting_Up.md"
+    },
+    {
+      "title": "Lab 2: Opening and Visualizing Datasets using `ADS`",
+      "filename": "../../Opening_and_Visualizing/Opening_and_Visualizing.md"
+    },
+    {
+      "title": "Lab 3: Building and Visualizing Models",
+      "filename": "../../Building_and_Visualizing/Building_and_Visualizing.md"
+    },
+    {
+      "title": "Lab 4: Evaluating Models Using `ADSEvaluator'",
+      "filename": "../../Evaluating_Models/Evaluating_Models.md"
+    },
+    {
+      "title": "Lab 5: Explaining How Models Work Using `ADSExplainer`",
+      "filename": "../../Explaining/Explaining.md"
+    },
+    {
+      "title": "References",
+      "description": "Solutions to Common Problems and Directions for Receiving Live Help",
+      "filename": "../../References/References.md"
+    },
+    {
+      "title": "Need Help?",
+      "description": "Solutions to Common Problems and Directions for Receiving Live Help",
+      "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/need-help/need-help-livelabs.md"
+    }
+  ]
+}
