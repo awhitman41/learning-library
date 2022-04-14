@@ -2,9 +2,7 @@
 
 ## Introduction
 
-*fill in ...
-
-Estimated Lab Time: -- 10 minutes
+We'll walk through the steps on how to open and visualize our dataset using Oracle ADS SDK.
 
 ### Objectives
 
@@ -41,13 +39,9 @@ df.columns = map(str.lower, df.columns)
 ds = DatasetFactory.from_dataframe(df, target='target')
 ```
 
-HBox(children=(HTML(value='loop1'), FloatProgress(value=0.0, max=4.0), HTML(value='')))
-
 ```python
 ds.shape
 ```
-
-(1000, 17)
 
 ```python
 ds.head()
@@ -86,8 +80,6 @@ Output()
 transformed_ds = ds.auto_transform(fix_imbalance=True)
 transformed_ds.visualize_transforms()
 ```
-
-HBox(children=(HTML(value='loop1'), FloatProgress(value=0.0, max=7.0), HTML(value='')))
 
 ```python
 transformed_ds.head()

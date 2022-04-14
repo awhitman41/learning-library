@@ -12,30 +12,16 @@ Placeholder text for required values are surrounded by angle brackets that must 
 
 Organizations can face significant costs resulting from employee turnover. Some costs are tangible, such as training expenses and the time it takes from when an employee starts to when they become a productive team member. Generally, the most important costs are intangible. Consider what is lost when a productive employee quits, such as corporate knowledge, new product ideas, great project management, and customer relationships. With advances in machine learning and data science, it's possible to not only predict employee attrition, but to understand the key variables that influence turnover. This will show
 
-### Objectives
+### **Objectives**
 
-- <a href='#setup'>Setting Up</a>
-- <a href='#data'>Opening and Visualizing Datasets using `ADS`</a>
-   - <a href='#binaryclassifition'>Binary Classification</a>
-   - <a href='#data'>The Dataset</a>
-   - <a href='#viz'>Visualizing the Dataset</a>
-   - <a href='#eda'>Exploratory Data Analysis</a> 
-   - <a href='#trans'>Getting and Applying Transformation Recommendations</a> 
-- <a href='#model'>Building and Visualizing Models</a>
-   - <a href='#automl'>Oracle AutoML</a>
-   - <a href='#other_sources'>Models from Other Sources</a> 
-- <a href='#eval'>Evaluating Models Using `ADSEvaluator`</a>
-- <a href='#explainations'>Explaining How Models Work Using `ADSExplainer`</a>
-   - <a href='#adsexplainer'>Using the `ADSExplainer` Class</a>
-   - <a href='#global'>Generating Global Explanations</a>
-   - <a href='#show'>Showing What the Model Has Learned</a>
-        - <a href='#show'>Using `ADSExplainer` for a Custom Model</a>
-        - <a href='#pdp'>Feature Dependence Explanations</a>   
-   - <a href='#localexplanations'>Generating Local Explanations</a>
-- <a href='#ref'>References</a>          
+* Opening and Visualizing Datasets using `ADS`
+* Building and Visualizing Models
+* Evaluating Models Using `ADSEvaluator
+* Explaining How Models Work Using `ADSExplainer`
+* Visualize results Using Oracle Analytics Cloud     
 ***
 
-### Prerequisites (Optional)
+### **Prerequisites (Optional)**
 
 * Experience level: Novice (Python and Machine Learning)
 * Professional experience: Some industry experience
@@ -43,7 +29,7 @@ Organizations can face significant costs resulting from employee turnover. Some 
 This lab assumes you have:
 * An Oracle account
 
-In general, the Introduction does not have Steps.
+
 
 ## Learn More
 

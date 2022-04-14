@@ -10,8 +10,6 @@ Oracle AutoML uses the `OracleAutoMLProvider` object to delegates the model trai
 
 In addition, AutoML has a pipeline-level Python API that quickly jump-starts the data science process with a quality tuned model. It selects the appropriate features and model class for a given prediction task.
 
-![image.png](attachment:image.png)
-
 ### Objectives
 
 In this lab, you will:
@@ -54,81 +52,11 @@ model, baseline = automl.train(model_list=['LogisticRegression', 'LGBMClassifier
                                score_metric = "roc_auc", time_budget=160)
 ```
 
-HBox(children=(HTML(value='loop1'), FloatProgress(value=0.0, max=4.0), HTML(value='')))
-
 #### LGBM 'Best' Model Based on Optimized Roc_AUC
 
 ```python
 model.show_in_notebook()
 ```
-
-[
-	{
-		"metadata": {
-			"outputType": "display_data",
-			"metadata": {}
-		},
-		"outputItems": [
-			{
-				"mimeType": "text/html",
-				"data": "<table border=\"1\" class=\"dataframe\">\n  <tbody>\n    <tr>\n      <td>Model Name</td>\n      <td>AutoML Classifier</td>\n    </tr>\n    <tr>\n      <td>Target Variable</td>\n      <td>target</td>\n    </tr>\n    <tr>\n      <td>Selected Algorithm</td>\n      <td>LGBMClassifier</td>\n    </tr>\n    <tr>\n      <td>Task</td>\n      <td>classification</td>\n    </tr>\n    <tr>\n      <td>Training Dataset Size</td>\n      <td>(890, 12)</td>\n    </tr>\n    <tr>\n      <td>CV</td>\n      <td>5</td>\n    </tr>\n    <tr>\n      <td>Optimization Metric</td>\n      <td>roc_auc</td>\n    </tr>\n    <tr>\n      <td>Selected Hyperparameters</td>\n      <td>{'boosting_type': 'gbdt', 'class_weight': None, 'colsample_bytree': 1.0, 'importance_type': 'split', 'learning_rate': 0.1, 'max_depth': -1, 'min_child_samples': 20, 'min_child_weight': 0.001, 'min_split_gain': 0.0, 'n_estimators': 101, 'n_jobs': 2, 'num_leaves': 31, 'objective': None, 'random_state': 42, 'reg_alpha': 0, 'reg_lambda': 1, 'silent': True, 'subsample': 1.0, 'subsample_for_bin': 200000, 'subsample_freq': 0}</td>\n    </tr>\n    <tr>\n      <td>Initial Number of Features</td>\n      <td>12</td>\n    </tr>\n    <tr>\n      <td>Initial Features</td>\n      <td>Index(['age', 'yrs_current_employer', 'marital_status', 'rent_own',\n       'mortgage_amt', 'job_type', 'insuff_funds_incidents', 'income_level',\n       'education', 'credit_balance', 'transaction_cnt', 'avg_transaction'],\n      dtype='object')</td>\n    </tr>\n    <tr>\n      <td>Selected Number of Features</td>\n      <td>10</td>\n    </tr>\n    <tr>\n      <td>Selected Features</td>\n      <td>[age, yrs_current_employer, marital_status, mortgage_amt, insuff_funds_incidents, income_level, education, credit_balance, transaction_cnt, avg_transaction]</td>\n    </tr>\n  </tbody>\n</table>"
-			},
-			{
-				"mimeType": "text/plain",
-				"data": "<IPython.core.display.HTML object>"
-			}
-		]
-	},
-	{
-		"metadata": {
-			"outputType": "execute_result",
-			"executionCount": 20,
-			"metadata": {}
-		},
-		"outputItems": [
-			{
-				"mimeType": "text/plain",
-				"data": "[['Model Name', 'AutoML Classifier'],\n ['Target Variable', 'target'],\n ['Selected Algorithm', 'LGBMClassifier'],\n ['Task', 'classification'],\n ['Training Dataset Size', (890, 12)],\n ['CV', 5],\n ['Optimization Metric', 'roc_auc'],\n ['Selected Hyperparameters',\n  {'boosting_type': 'gbdt',\n   'class_weight': None,\n   'colsample_bytree': 1.0,\n   'importance_type': 'split',\n   'learning_rate': 0.1,\n   'max_depth': -1,\n   'min_child_samples': 20,\n   'min_child_weight': 0.001,\n   'min_split_gain': 0.0,\n   'n_estimators': 101,\n   'n_jobs': 2,\n   'num_leaves': 31,\n   'objective': None,\n   'random_state': 42,\n   'reg_alpha': 0,\n   'reg_lambda': 1,\n   'silent': True,\n   'subsample': 1.0,\n   'subsample_for_bin': 200000,\n   'subsample_freq': 0}],\n ['Initial Number of Features', 12],\n ['Initial Features',\n  Index(['age', 'yrs_current_employer', 'marital_status', 'rent_own',\n         'mortgage_amt', 'job_type', 'insuff_funds_incidents', 'income_level',\n         'education', 'credit_balance', 'transaction_cnt', 'avg_transaction'],\n        dtype='object')],\n ['Selected Number of Features', 10],\n ['Selected Features',\n  ['age',\n   'yrs_current_employer',\n   'marital_status',\n   'mortgage_amt',\n   'insuff_funds_incidents',\n   'income_level',\n   'education',\n   'credit_balance',\n   'transaction_cnt',\n   'avg_transaction']]]"
-			}
-		]
-	}
-]
-
-*Ask Jeremy*
-
-[['Model Name', 'AutoML Classifier'],
- ['Target Variable', 'target'],
- ['Selected Algorithm', 'LGBMClassifier'],
- ['Task', 'classification'],
- ['Training Dataset Size', (890, 12)],
- ['CV', 5],
- ['Optimization Metric', 'roc_auc'],
- ['Selected Hyperparameters',
-  {'boosting_type': 'gbdt',
-   'class_weight': None,
-   'colsample_bytree': 1.0,
-   'importance_type': 'split',
-   'learning_rate': 0.1,
-   'max_depth': -1,
-   'min_child_samples': 20,
-   'min_child_weight': 0.001,
-   'min_split_gain': 0.0,
-   'n_estimators': 101,
-   'n_jobs': 2,
-   'num_leaves': 31,
-   'objective': None,
-   'random_state': 42,
-   'reg_alpha': 0,
-   'reg_lambda': 1,
-   'silent': True,
-show more (open the raw output data in a text editor) ...
-
-   'insuff_funds_incidents',
-   'income_level',
-   'education',
-   'credit_balance',
-   'transaction_cnt',
-   'avg_transaction']]]
 
 #### Hypertuned Parameters Resulting in a ~88% Accuracy in Predicting if a Person will be Delinquent on their Rent
 
@@ -140,32 +68,9 @@ print("Oracle AutoML accuracy on test data:",
       model.score(test.X, test.y, score_fn = accuracy_scorer))
 ```
 
-Oracle AutoML accuracy on test data: 0.9090909090909091
-
 ```python
 model.selected_model_params_
 ```
-
-{'boosting_type': 'gbdt',
- 'class_weight': None,
- 'colsample_bytree': 1.0,
- 'importance_type': 'split',
- 'learning_rate': 0.1,
- 'max_depth': -1,
- 'min_child_samples': 20,
- 'min_child_weight': 0.001,
- 'min_split_gain': 0.0,
- 'n_estimators': 101,
- 'n_jobs': 2,
- 'num_leaves': 31,
- 'objective': None,
- 'random_state': 42,
- 'reg_alpha': 0,
- 'reg_lambda': 1,
- 'silent': True,
- 'subsample': 1.0,
- 'subsample_for_bin': 200000,
- 'subsample_freq': 0}
 
 ## Learn More
 

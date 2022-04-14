@@ -2,13 +2,16 @@
 
 ## Introduction
 
-...
+You will learn how to explain models using 'ADSExplainer'
 
 ### Objectives
 
 In this lab, you will:
-
-...
+* Using 'ADSExplainer'
+* Using Model Catalog to Push to Production
+* Use Trained LGBM Model to Predict on New Data
+* Sending Results to ADW to be used with OAC
+* Using Oracle Analytics Cloud
 
 ### Prerequisites
 
@@ -27,15 +30,6 @@ global_explainer = explainer.global_explanation(provider=MLXGlobalExplainer())
 
 global_explainer.feature_importance_summary()
 ```
-
-ERROR:ads:ADS Exception
-Traceback (most recent call last):
-  File "/home/datascience/conda/mlgpuv1/lib/python3.6/site-packages/IPython/core/interactiveshell.py", line 3343, in run_code
-    exec(code_obj, self.user_global_ns, self.user_ns)
-  File "<ipython-input-3-c16d119f2a79>", line 2, in <module>
-    explainer = ADSExplainer(test, model)
-NameError: name 'test' is not defined
-NameError: name 'test' is not defined
 
 ```python
 importances = global_explainer.compute_feature_importance()
@@ -73,16 +67,6 @@ for file in os.listdir(path_to_generic_model_artifact):
         print(file)
 ```
 
-Model Artifact Path: /tmp/tmpv6r475vq
-
-Model Artifact Files:
-score.py
-func.py
-requirements.txt
-model.pkl
-runtime.yaml
-func.yaml
-
 ```python
 with open(path.join(path_to_generic_model_artifact, "score.py"), 'r') as f:
     print(f.read())
@@ -94,12 +78,6 @@ with open(path.join(path_to_generic_model_artifact, "score.py"), 'r') as f:
 with open(path.join(path_to_generic_model_artifact, "requirements.txt"), 'r') as f:
     print(f.read())
 ```
-
-fdk==0.1.21
-numpy==1.18.5
-pandas==1.1.0
-scikit-learn==0.23.2
-onnxruntime==1.4.0
 
 ## Sending Results to ADW to be used with OAC
 
@@ -124,9 +102,21 @@ pd.read_sql("select * from customers_predictions", con=engine).head()
 ```
 
 ### Now that results have been pushed to ADW, we can further analyze using Oracle Analytics Cloud
-https://demo-orasenatdpltintegration03-ia.analytics.ocp.oraclecloud.com/ui/dv/?pageid=home
 
-## Overview
+Signin to Oracle Cloud and go to your analytics instance. If you dont have an analytics instance running, please go to this [link] (https://docs.oracle.com/en/learn/set_up_data_warehouse/provisioning-oac/provisioning-oac.html#introduction)
+
+Then make a connection to the ADW. If you need additional instructions, follow this [link] (https://docs.oracle.com/en/learn/set_up_data_warehouse/oac/oac.html#task-1-create-the-connection-from-oracle-analytics-cloud-to-autonomous-database)
+
+Lastly, you are able to begin making visualization and gathering further insights on your data that can then be shared and presented. Here are some examples:
+
+![Image alt text](images/image1.png)
+
+![Image alt text](images/image2.png)
+
+![Image alt text](images/image3.png)
+
+
+### Overview
 
 Feature permutation importance is a model-agnostic global explanation method that provides insights into a machine learning model's behavior. It estimates and ranks feature importance based on the impact each feature has on the trained machine learning model's predictions.
 

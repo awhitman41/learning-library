@@ -4,8 +4,6 @@
 
 This labs walks you through how to connect our Autonomous Data Warehouse (ADW) to Oracle's Data Science platform.
 
-Estimated Time: -- 10 minutes 
-
 ### Prerequisites
 
 This lab assumes you have:
@@ -74,25 +72,6 @@ pd.set_option('display.max_rows', None)
 
 uri=f'oracle+cx_oracle://{os.environ["ADW_USER"]}:{os.environ["ADW_PASSWORD"]}@{os.environ["ADW_SID"]}'
 ```
-
-env: TNS_ADMIN=/home/datascience/jmadw_wallet
-env: ADW_SID=jmadw_high
-env: ADW_USER=admin
-env: ADW_PASSWORD=Welcome#1234
-
-SQL*Plus: Release 19.0.0.0.0 - Production on Tue Mar 2 18:13:35 2021
-Version 19.6.0.0.0
-
-Copyright (c) 1982, 2019, Oracle.  All rights reserved.
-
-Last Successful login time: Tue Mar 02 2021 02:45:02 +00:00
-
-Connected to:
-Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
-Version 19.5.0.0.0
-
-SQL> Disconnected from Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
-Version 19.5.0.0.0
 
 ## Learn More
 
