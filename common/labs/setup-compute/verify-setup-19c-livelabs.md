@@ -1,10 +1,10 @@
-# Setup Compute Instance
+# Set up compute instance
 
 ## Introduction
 
 This lab will show you how to verify your compute instance has been setup.
 
-Estimated Lab Time: 10 minutes
+Estimated Time: 10 minutes
 
 Quick walk through on how to verify your compute instance setup.
 
@@ -28,15 +28,15 @@ This lab assumes you have:
 - Successfully logged into your LiveLabs account
 - A Valid SSH Key Pair
 
-## Task 1: Gather compute instance details
+## Task 1: Gather Compute Instance Details
 1. Click the **Navigation Menu** in the upper left, navigate to **Compute**, and select **Instances**.
     ![](https://raw.githubusercontent.com/oracle/learning-library/master/common/images/console/compute-instances.png " ")
 2. Select the compartment that was assigned (the compartment assigned begins with the prefix *LL* followed by your user ID)
-3. Look for the instance that was created for you jot down the public IP address.
-    ![Create a stack](images/workshop-012.png " ")
+3. Look for the instance that was created for you. Jot down the public IP address.
+    ![Create a stack](images/public-ip.png " ")
 
 
-## Task 2: Connect to your instance
+## Task 2: Connect to Your Instance
 
 There are multiple ways to connect to your cloud instance.  Choose the way to connect to your cloud instance that matches the SSH Key you provided during registration.
 
@@ -105,11 +105,11 @@ There are multiple ways to connect to your cloud instance.  Choose the way to co
 
     ![](./images/cloudshelllogin.png " ")
 
-    *Note: The angle brackets <> should not appear in your code.*
+    >**Note:** The angle brackets <> should not appear in your code.
 
 4.  After successfully logging in, proceed to the *next Step* on the left hand menu.
 
-*Note:  If you encounter any errors with this step, please see the Troubleshooting Tips in the appendix.
+>**Note:** If you encounter any errors with this step, please see the Troubleshooting Tips in the appendix.
 
 ### Windows using Putty
 
@@ -120,7 +120,7 @@ There are multiple ways to connect to your cloud instance.  Choose the way to co
     ```
     ![](./images/ssh-first-time.png " ")
 
-    *Note: The angle brackets <> should not appear in your code.*
+    >**Note:** The angle brackets <> should not appear in your code.
 
 2.  Enter a name for the session and click **Save**.
 
@@ -140,9 +140,9 @@ There are multiple ways to connect to your cloud instance.  Choose the way to co
 
 8. Click Open to begin your session with the instance.
 
-*Note:  If you encounter any errors with this step, please see the Troubleshooting Tips in the appendix.
+>**Note:**  If you encounter any errors with this step, please see the Troubleshooting Tips in the appendix.
 
-## Task 3: Verify the ORCL database is up
+## Task 3: Verify the ORCL Database is up
 
 Once you deploy your compute instance, tail the log to determine when the database has been configured and is available for use.
 1. Run the following command to verify the database with the SID **ORCL** is up and running.
@@ -181,7 +181,7 @@ Once you deploy your compute instance, tail the log to determine when the databa
     ```
     ![](./images/oraenv.png " ")
 
-5.  Login using SQL*Plus as the **oracle** user.  
+5.  Login using SQL*Plus as the **oracle** user.
 
     ```
     <copy>
@@ -189,7 +189,7 @@ Once you deploy your compute instance, tail the log to determine when the databa
     </copy>
     ```
     ![](./images/sqlplus.png " ")
-*Note:  If you encounter any errors with this step, please see the Troubleshooting Tips in the appendix.
+>**Note:** If you encounter any errors with this step, please see the Troubleshooting Tips in the appendix.
 
 ## Task 4: Exit SQLPLUS
 1.  Exit the sqlplus session.
@@ -203,7 +203,7 @@ Once you deploy your compute instance, tail the log to determine when the databa
     <copy>exit</copy>
     ```
 
-3. Verify that you are now the **opc** user using the *whoami* command.  
+3. Verify that you are now the **opc** user using the *whoami* command.
 
     ```
     <copy>
@@ -213,7 +213,7 @@ Once you deploy your compute instance, tail the log to determine when the databa
 
     ![](./images/whoami.png " ")
 
-You may now *proceed to the next lab*.  
+You may now **proceed to the next lab**.
 
 
 ## Appendix: Troubleshooting Tips
@@ -251,5 +251,5 @@ When creating your SSH Key, if the key is invalid the compute instance stack cre
 
 ## Acknowledgements
 - **Author** - LiveLabs Team, Senior Director, DB Product Management
-- **Contributors** - Robert Pastijn, DB Product Management, PTS
-- **Last Updated By/Date** - Didi Han, DB Product Management, May 2021
+- **Contributors** - Robert Pastijn, DB Product Management, PTS; Didi Han, DB Product Management
+- **Last Updated By/Date** - Arabella Yao, Product Manager, Database Product Management, March 2022

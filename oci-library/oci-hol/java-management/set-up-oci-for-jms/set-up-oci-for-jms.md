@@ -1,11 +1,11 @@
-# Set Up Oracle Cloud Infrastructure for Java Management Service
+# Set up Oracle Cloud Infrastructure for Java Management Service
 
 ## Introduction
 Before you can use Java Management Service, you must ensure that your Oracle Cloud Infrastructure environment is set up correctly to allow the communication flow between all required components and cloud services.
 
-This section describes the steps to set up Oracle Cloud Infrastructure for Java Management Service. You may choose to use the Onboarding Wizard or perform the steps manually. 
+This section describes the steps to set up Oracle Cloud Infrastructure for Java Management Service. You may choose to use the Onboarding Wizard or perform the steps manually.
 
-Before you begin, review the prerequisites and the overview of the steps. 
+Before you begin, review the prerequisites and the overview of the steps.
 
 Estimated Time: 15 min
 
@@ -45,7 +45,7 @@ Using the Onboarding Wizard to automatically creates the necessary resources.
         ![image of fleets main page](/../images/fleets-main-page.png)
     &nbsp;
 
-5. Click **Details** to view details of the resources that will be created by the Onboarding Wizard. The resources created are a new compartment, user group, dynamic group, policy and tag namespace. 
+5. Click **Details** to view details of the resources that will be created by the Onboarding Wizard. The resources created are a new compartment, user group, dynamic group, policy and tag namespace.
     ![image of onboarding wizard buttons](/../images/fleets-setup-jms.png)
     &nbsp;
 
@@ -120,7 +120,7 @@ Sign in to the Oracle Cloud Console as an administrator using the credentials pr
     For more information, see [Setting Up Your Tenancy](https://docs.oracle.com/en-us/iaas/Content/GSG/Concepts/settinguptenancy.htm) and [Managing Compartments](https://docs.oracle.com/en-us/iaas/Content/Identity/Tasks/managingcompartments.htm).
     &nbsp;
 
-2. Create a new tag namespace
+2. Create a new tag namespace.
 
     * In the Oracle Cloud Console, open the navigation menu and click **Governance & Administration**. Under **Governance**, click **Tag Namespaces**.
         ![image of console navigation to tag namespaces](/../images/console-navigation-tag-namespaces.png)
@@ -157,7 +157,7 @@ Sign in to the Oracle Cloud Console as an administrator using the credentials pr
 
 4. Create a user group.
 
-    * In the Oracle Cloud Console, open the navigation menu and click Identity & Security. Under Identity, click Groups. 
+    * In the Oracle Cloud Console, open the navigation menu and click Identity & Security. Under Identity, click Groups.
         ![image of console navigation to groups](/../images/console-navigation-groups.png)
         &nbsp;
     * Click **Create Group**.
@@ -175,7 +175,7 @@ Sign in to the Oracle Cloud Console as an administrator using the credentials pr
     For more information, see [Managing Users](https://docs.oracle.com/en-us/iaas/Content/Identity/Tasks/managingusers.htm).
     &nbsp;
 
-6. Create Policies
+6. Create Policies.
 
     Create policies for the user group to access and manage JMS fleets, management agents, agent install keys, metrics, and tag namespaces. A policy allows members of a user group to access and manage OCI resources.
     &nbsp;
@@ -204,10 +204,10 @@ Sign in to the Oracle Cloud Console as an administrator using the credentials pr
     * Click **Create**.
     &nbsp;
 
-7. Create Dynamic Group
+7. Create Dynamic Group.
 
-    Create a dynamic group of all agents. To interact with the Oracle Cloud Infrastructure service end-points, users must explicitly consent to let the management agents work with JMS. 
-    
+    Create a dynamic group of all agents. To interact with the Oracle Cloud Infrastructure service end-points, users must explicitly consent to let the management agents work with JMS.
+
     * In the Oracle Cloud Console, open the navigation menu and click **Identity & Security**. Under **Identity**, click **Dynamic Groups**.
         ![image of console navigation to dynamic groups](/../images/console-navigation-dynamic-groups.png)
         &nbsp;
@@ -222,15 +222,15 @@ Sign in to the Oracle Cloud Console as an administrator using the credentials pr
         ALL {resource.type='managementagent', resource.compartment.id='<fleet_compartment_ocid>'}
         </copy>
         ```
-        Replace `<fleet_compartment_ocid>` with the OCID of the compartment that you created in step 1. (You should have pasted it into a text editor.) 
+        Replace `<fleet_compartment_ocid>` with the OCID of the compartment that you created in step 1. (You should have pasted it into a text editor.)
         ![image of dynamic groups create page](/../images/dynamic-groups-create-example.png)
         &nbsp;
     * Click **Create**.
         &nbsp;
-        For more information, see [Managing Dynamic Groups](https://docs.oracle.com/en-us/iaas/Content/Identity/Tasks/managingdynamicgroups.htm). 
+        For more information, see [Managing Dynamic Groups](https://docs.oracle.com/en-us/iaas/Content/Identity/Tasks/managingdynamicgroups.htm).
         &nbsp;
 
-8. Create Policies for JMS Agent
+8. Create Policies for JMS Agent.
 
     These policies allow the management agents to interact with JMS, upload data to OCI Monitoring service, and use tag namespaces.
 
@@ -257,7 +257,7 @@ Sign in to the Oracle Cloud Console as an administrator using the credentials pr
 
 * Refer to the [Getting Started with Java Management Service](https://docs.oracle.com/en-us/iaas/jms/doc/getting-started-java-management-service.html) section of the JMS documentation for more details.
 
-* Use the [Troubleshooting](https://docs.oracle.com/en-us/iaas/jms/doc/troubleshooting.html#GUID-2D613C72-10F3-4905-A306-4F2673FB1CD3) chapter for explanations on how to diagnose and resolve common problems encountered when installing or using Java Management Service. 
+* Use the [Troubleshooting](https://docs.oracle.com/en-us/iaas/jms/doc/troubleshooting.html#GUID-2D613C72-10F3-4905-A306-4F2673FB1CD3) chapter for explanations on how to diagnose and resolve common problems encountered when installing or using Java Management Service.
 
 * If the problem still persists or if the problem you are facing is not listed, please refer to the [Getting Help and Contacting Support](https://docs.oracle.com/en-us/iaas/Content/GSG/Tasks/contactingsupport.htm) section or you may open a a support service request using the **Help** menu in the OCI console.
 

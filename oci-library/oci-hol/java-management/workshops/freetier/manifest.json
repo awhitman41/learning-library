@@ -15,32 +15,37 @@
             "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/cloud-login/pre-register-free-tier-account.md"
         },
         {
-            "title": "Lab 1: Set Up Oracle Cloud Infrastructure for Java Management Service",
+            "title": "Lab 1: Set up Oracle Cloud Infrastructure for Java Management Service",
             "filename": "../../set-up-oci-for-jms/set-up-oci-for-jms.md"
         },
         {
-            "title": "Lab 2: Deploy a Java Application",
+            "title": "Lab 2: Deploy a Java application",
             "filename": "../../deploy-a-java-application/deploy-a-java-application.md"
         },
         {
-            "title": "Lab 3: Set Up a Fleet",
+            "title": "Lab 3: Set up a Fleet",
             "filename": "../../setup-a-fleet/setup-a-fleet.md"
         },
         {
-            "title": "Lab 4: Set Up of Management Agent",
+            "title": "Lab 4: Set up of Management Agent",
             "filename": "../../set-up-of-management-agent/set-up-of-management-agent.md"
         },
         {
-            "title": "Lab 5: Access and Utilise REST API via OCI CLI",
+            "title": "Lab 5: Access and utilise REST API via OCI CLI",
             "filename": "../../access-and-utilise-rest-api-via-oci-cli/access-and-utilise-rest-api-via-oci-cli.md"
         },
         {
-            "title": "Lab 6: Access and Utilise REST API via JMS SDKs and Postman",
+            "title": "Lab 6: Access and utilise REST API via JMS SDKs and Postman",
             "filename": "../../access-and-utilise-rest-api-via-jms-sdk-postman/access-and-utilise-rest-api-via-jms-sdk-postman.md"
         },
         {
-            "title": "Lab 7: Track Java Usage in a Container",
+            "title": "Lab 7: Track Java Usage in a container",
             "filename":"../../track-java-usage-in-a-container/track-java-usage-in-a-container.md"
+            
+        },
+        {
+            "title": "Lab 8: Set up Logrotate",
+            "filename":"../../set-up-logrotate/set-up-logrotate.md"
             
         },
         {

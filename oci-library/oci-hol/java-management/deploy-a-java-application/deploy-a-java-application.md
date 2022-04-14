@@ -1,4 +1,4 @@
-# Deploy a Java Application
+# Deploy a Java application
 
 ## Introduction
 
@@ -51,14 +51,15 @@ In this workshop, you will:
 
     **Image**
     * **Image**: Oracle Linux 7.9
-    * **Image build**: 2020.11.10-1
-    **Shape**
-    * **Shape**: VM.Standard.E2.1.Micro
+    * **Image build**: 2022.01.24-0
+    * **Shape**: Any AMD or Intel shape
     * **OCPU count**: 1
     * **Memory (GB)**: 1
     * **Network bandwidth (Gbps)**: 0.48
 
-    Review the Networking settings. Take the default values provided by the wizard.
+    > **Note:** Usage of Ampere shapes is not recommended for Java Management Service as they are not supported.
+
+    Review the **Networking** settings. Take the default values provided by the wizard.
 
     **Virtual cloud network**: vcn-'date'-'time'
     * **Subnet**: vcn-'date'-'time'
@@ -102,7 +103,7 @@ In this workshop, you will:
 
 ### For **Linux**
 
-1. Install JDK 8 in your instance.
+1. Install JDK 8 (64-bit) in your instance.
   Install Oracle JDK 8 using `yum`.
     ```
     <copy>
@@ -110,32 +111,13 @@ In this workshop, you will:
     java -version
     </copy>
     ```
-  Set `JAVA_HOME` in `.bashrc`.
-  Update the file:
-    ```
-    <copy>
-    vi ~/.bashrc
-    </copy>
-    ```
-  In the file, append the following text and save the file:
-    ```
-    <copy>
-    # set JAVA_HOME
-    export JAVA_HOME=/etc/alternatives/java_sdk
-    </copy>
-    ```
-  Activate the preceding command in the current window.
-    ```
-    <copy>
-    source ~/.bashrc
-    </copy>
-    ```
+    > **Note:** Management Agents require JDK 8 and superuser privileges for installation.
 
 2. Java is installed.
 
-3. Build your Java application:
+3. Build your Java application.
 
-  In the **Terminal** window, create a java file by entering this command
+  In the **Terminal** window, create a Java file by entering this command:
     ```
     <copy>
     sudo nano HelloWorld.java
@@ -147,7 +129,7 @@ In this workshop, you will:
     ```
     <copy>
     public class HelloWorld {
-      public static void main(String[] args){
+      public static void main(String[] args) throws InterruptedException{
         System.out.println("This is my first program in java");
         int number=15;  
         System.out.println("List of even numbers from 1 to "+number+": ");  
@@ -156,6 +138,7 @@ In this workshop, you will:
           //if i%2 is equal to zero, the number is even  
           if (i%2==0) {
             System.out.println(i);
+            Thread.sleep(2000);
           }
         }  
       }//End of main
@@ -163,12 +146,12 @@ In this workshop, you will:
     </copy>
     ```
 
-4. To save the file, type **CTRL+x**. Before exiting, nano will ask you if you wish to save the file: Type **y** to save and exit, type n to abandon your changes and exit.
+4. To save the file, type **CTRL+x**. Before exiting, nano will ask you if you wish to save the file: Type **y** to save and exit, type **n** to abandon your changes and exit.
 
 ### For **Windows**
 
 1. Install JDK 8 in your instance.
-  Visit the [official Oracle page](https://www.oracle.com/java/technologies/downloads/#java8-windows) to download Java 8.
+  Visit the [official Oracle page](https://www.oracle.com/java/technologies/downloads/#java8-windows) to download Java 8. Download the x64 installer `jdk-8u<VERSION>-windows-x64.exe`.
 
   Run the downloaded file and follow the instruction of installer. Leave default options, take note of the jdk installation path.
 
@@ -176,17 +159,25 @@ In this workshop, you will:
 
   Set the **JAVA\_HOME** environment variable. To set it, go to **System variables** form -> click **New** -> enter **JAVA\_HOME** for **Variable name:** and **path/to/jdk** for **Variable value:** (for example: C:\Program Files\Java\jdk1.8.0_161).
 
-  To check if Java has been installed, in **Command Prompt** window, enter this command.
+  To check if Java has been installed, in **Command Prompt** window, enter the following command.
     ```
     <copy>
     javac -help
     </copy>
     ```
-2. If there is a list of options, Java is installed.
+    There should be a list of options. Now, enter the following:
 
-3. Build your Java application:
+    ```
+    <copy>
+    java -version
+    </copy>
+    ```
 
-  In the **Command Prompt** window, create a java file by entering this command
+2. If there is information about your Java runtime, Java is installed.
+
+3. Build your Java application.
+
+  In the **Command Prompt** window, create a java file by entering this command:
     ```
     <copy>
     notepad HelloWorld.java
@@ -216,9 +207,9 @@ In this workshop, you will:
 
 ### **For All Operating Systems:**
 
-5. Run your Java application:
+5. Run your Java application.
 
-  To compile the program, type the following command and hit enter.
+  To compile the program, type the following command and hit enter:
     ```
     <copy>
     javac HelloWorld.java
@@ -232,7 +223,7 @@ In this workshop, you will:
     </copy>
     ```
 
-  If all goes well, you will see the following response
+  If all goes well, you will see the following response:
     ```
     This is my first program in java
     List of even numbers from 1 to 15
@@ -249,9 +240,28 @@ In this workshop, you will:
 
 ## Task 4: Shutdown Compute
 
-Do remember to stop your compute instance after you are done running it to conserve resources and reduce charges. If you are using an always free tier compute instance, there are no associated charges
+Do remember to stop your compute instance after you are done running it to conserve resources and reduce charges. If you are using an always free tier compute instance, there are no associated charges.
 
 You may now **proceed to the next lab.**
+
+## Troubleshoot Java Application Deployment Issues
+
+**For Task 2**
+
+* If you encounter a permissions error similar to the following:
+    ```
+    Permissions 0644 for '<your-keyfile-name>.key' are too open.
+
+    It is required that your private key files are NOT accessible by others.
+    ```
+  You will need to assign read and write permissions to your key. Enter the following:
+
+    ```
+    <copy>
+    chmod 600 ./<your-private-key-file>
+    </copy>
+    ```
+
 
 ## Want to Learn More?
 
@@ -262,4 +272,4 @@ You may now **proceed to the next lab.**
 ## Acknowledgements
 
 * **Author** - Esther Neoh, Java Management Service
-* **Last Updated By** - Esther Neoh, November 2021
+* **Last Updated By** - Xin Yi Tay, February 2022

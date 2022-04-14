@@ -1,4 +1,4 @@
-# Access and Utilize REST API via OCI CLI
+# Access and utilise REST API via OCI CLI
 
 ## Introduction
 
@@ -22,7 +22,7 @@ In this lab, you will:
 
 ## Task 1: Generate an API Signing Key
 
-1. If you have generated your own keys, refer to the public documentation on how to [upload them](https://docs.oracle.com/en-us/iaas/Content/API/Concepts/apisigningkey.htm) and the public key fingerprint
+1. If you have generated your own keys, refer to the public documentation on how to [upload them](https://docs.oracle.com/en-us/iaas/Content/API/Concepts/apisigningkey.htm) and the public key fingerprint.
 
 2. Open the Profile menu, click the **Profile icon** and click User Settings.
 
@@ -30,11 +30,11 @@ In this lab, you will:
 
   ![image of user settings](/../images/user-settings.png)
 
-3. Click **API Keys**
+3. Click **API Keys**.
 
   ![image of create api key](/../images/api-key.png)
 
-4. Click **Add API Key**
+4. Click **Add API Key**.
 
   ![image of add api key](/../images/add-api-key.png)
 
@@ -56,7 +56,7 @@ In this lab, you will:
 
   ![image of configuration file permissions](/../images/config-file-permissions.png)
 
-10. An API Key is successfully created
+10. An API Key is successfully created.
 
   ![image of successful api key creation](/../images/api-key-created.png)
 
@@ -73,11 +73,11 @@ To run the installer script, run the following command.
   bash -c "$(curl -L https://raw.githubusercontent.com/oracle/oci-cli/master/scripts/install/install.sh)"
   </copy>
   ```
-Respond to the Installation Script prompts
+Respond to the Installation Script prompts.
 
 #### For Oracle Linux 8
 
-Use dnf to install the CLI
+Use dnf to install the CLI.
   ```
   <copy>
   sudo dnf -y install oraclelinux-developer-release-el8
@@ -86,7 +86,7 @@ Use dnf to install the CLI
   ```
 #### For Oracle Linux 7
 
-Use yum to install the CLI
+Use yum to install the CLI.
   ```
   <copy>
   sudo yum install python36-oci-cli

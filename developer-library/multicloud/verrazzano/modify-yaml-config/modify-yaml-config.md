@@ -1,4 +1,4 @@
-# Modify the Bob's Books Configuration YAML File
+# Modify the Bobby's Books Configuration YAML File
 
 ## Introduction
 
@@ -32,7 +32,7 @@ You should have a text editor, where you can paste the commands and URLs and mod
 
     ![Open file](images/6.png " ")
 
-3. As part of Lab 5, you saved your Docker image full name. You need to copy the following line and paste it in your text editor. Then, you need to replace `docker image full name` with your Docker image name. Then copy the modified line and press *i* to insert the text in the `*bobs-books-comp.yaml*` file. Paste the output at line number 145 (make sure you keep the indentation) and comment out the exiting line with *#* as shown in the following image, then press *Esc* and then type *:wq* to save the file.
+3. As part of Lab 5, you saved your Docker image full name. You need to copy the following line and paste it in your text editor. Then, you need to replace `docker image full name` with your Docker image name. Then copy the modified line and press *i* to insert the text in the `*bobs-books-comp.yaml*` file. Paste the output at line number 153 (make sure you keep the indentation) and comment out the exiting line with *#* as shown in the following image, then press *Esc* and then type *:wq* to save the file.
 
     ```bash
     <copy>image:  `docker image full name`</copy>
@@ -61,27 +61,27 @@ You should have a text editor, where you can paste the commands and URLs and mod
     You will see output similar to the following:
 
     ```bash
-    vera_zano@cloudshell:~ (us-ashburn-1)$ kubectl get pods -n bobs-books
-    NAME                                               READY  STATUS   RESTARTS  AGE
-    bobbys-coherence-0                                 2/2    Running  0         130m
-    bobbys-front-end-adminserver                       4/4    Running  0         127m
-    bobbys-front-end-managed-server1                   4/4    Running  0         126m
-    bobbys-helidon-stock-application-64fb55cd5b-f8zzp  0/2    PodInitializing  0         10s
-    bobbys-helidon-stock-application-77867fc8dd-wl8h5  2/2    Running  0         130m
-    bobs-bookstore-adminserver                         4/4    Running  0         127m
-    bobs-bookstore-managed-server1                     4/4    Running  0         126m
-    mysql-65d864bf8c-xf64p                             2/2    Running  0         130m
-    robert-helidon-bfdfb58b8-58qfs                     2/2    Running  0         130m
-    robert-helidon-bfdfb58b8-lkw8m                     2/2    Running  0         130m
-    roberts-coherence-0                                2/2    Running  0         130m
-    roberts-coherence-1                                2/2    Running  0         130m
-    bobbys-helidon-stock-application-64fb55cd5b-f8zzp  1/2    Running  0         28s
-    bobbys-helidon-stock-application-64fb55cd5b-f8zzp  2/2    Running  0         34s
-    bobbys-helidon-stock-application-77867fc8dd-wl8h5  2/2    Terminating  0         130m
-    bobbys-helidon-stock-application-77867fc8dd-wl8h5  0/2    Terminating  0         130m
-    bobbys-helidon-stock-application-77867fc8dd-wl8h5  0/2    Terminating  0         130m
-    bobbys-helidon-stock-application-77867fc8dd-wl8h5  0/2    Terminating  0         130m
-    vera_zano@cloudshell:~ (us-ashburn-1)$
+    $ kubectl get pods -n bobs-books
+    NAME                                         READY  STATUS   RESTARTS  AGE
+    bobbys-coherence-0                           2/2    Running      0         130m
+    bobbys-front-end-adminserver                 4/4    Running      0         127m
+    bobbys-front-end-managed-server1             4/4    Running      0         126m
+    bobbys-helidon-stock-application-64fb55-zzp  0/2    PodInitializing  0     10s
+    bobbys-helidon-stock-application-77867f-8h5  2/2    Running      0         130m
+    bobs-bookstore-adminserver                   4/4    Running      0         127m
+    bobs-bookstore-managed-server1               4/4    Running      0         126m
+    mysql-65d864bf8c-xf64p                       2/2    Running      0         130m
+    robert-helidon-bfdfb58b8-58qfs               2/2    Running      0         130m
+    robert-helidon-bfdfb58b8-lkw8m               2/2    Running      0         130m
+    roberts-coherence-0                          2/2    Running      0         130m
+    roberts-coherence-1                          2/2    Running      0         130m
+    bobbys-helidon-stock-application-64fb55-zzp  1/2    Running      0         28s
+    bobbys-helidon-stock-application-64fb55-zzp  2/2    Running      0         34s
+    bobbys-helidon-stock-application-77867f-8h5  2/2    Terminating  0         130m
+    bobbys-helidon-stock-application-77867f-8h5  0/2    Terminating  0         130m
+    bobbys-helidon-stock-application-77867f-8h5  0/2    Terminating  0         130m
+    bobbys-helidon-stock-application-77867f-8h5  0/2    Terminating  0         130m
+    $
     ```
 
     After you see that all the pods are in the *Running* Status, press *CTRL + C* to kill this command.
@@ -92,4 +92,4 @@ Leave the *Cloud Shell* open as we also need it for our last lab.
 
 * **Author** -  Ankit Pandey
 * **Contributors** - Maciej Gruszka, Peter Nagy
-* **Last Updated By/Date** - Kamryn Vinson, July 2021
+* **Last Updated By/Date** - Kamryn Vinson, January 2022

@@ -1,4 +1,4 @@
-# Getting Started
+# Getting started
 
 ## Introduction
 
@@ -28,7 +28,7 @@ Creating an Oracle account can be summarized in the following two simple steps.
 
   ![](images/livelab-env-created-email.png " ")
 
-  *Note: You will receive the second created e-mail just before your selected reservation time.*
+  >**Note:** You will receive the second created e-mail just before your selected reservation time.
 
 3. Log into LiveLabs and click **My Reservations**, then click the **Launch Workshop** link for the Workshop environment you'd like to use. Note that you may have several Workshops listed.
 
@@ -42,11 +42,11 @@ Creating an Oracle account can be summarized in the following two simple steps.
 
   ![](images/open-workshop.png " ")
 
-You may now [proceed to the next lab](#next).
+You may now **proceed to the next lab**.
 
 
 ## Acknowledgements
 
-- **Created By/Date** - Tom McGinn, Database Product Management, March 2020
+- **Created By/Date** - Kay Malcolm, Database Product Management, March 2020
 - **Contributors** - Rene Fontcha, Kamryn Vinson, Anoosha Pilli
-- **Last Updated By/Date** - Tom McGinn, Brianna Ambler, June 2021
+- **Last Updated By/Date** - Arabella Yao, Product Manager, Database Product Management, March 2022

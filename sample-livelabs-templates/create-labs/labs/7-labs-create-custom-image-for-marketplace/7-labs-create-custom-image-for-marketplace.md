@@ -29,14 +29,23 @@ This lab assumes you have:
     <copy>
     cat > /tmp/stopvnc.sh <<EOF
     #!/bin/bash
+
+    #Drop existing chrome browser sessions
+    ll_windows_opened=\$(ps aux | grep 'disable-session-crashed-bubble'|grep -v grep |awk '{print \$2}'|wc -l)
+
+    if [[ "\${ll_windows_opened}" -gt 0 ]]; then
+      kill -2 \$(ps aux | grep 'disable-session-crashed-bubble'|grep -v grep |awk '{print \$2}')
+    fi
+
+    #Stop VNC
     cd /etc/systemd/system
     for i in \$(ls vncserver_*@*)
     do
-      sudo systemctl stop \$i
+      systemctl stop \$i
     done
     EOF
     chmod +x /tmp/stopvnc.sh
-    /tmp/stopvnc.sh
+    sudo /tmp/stopvnc.sh
     </copy>
     ```
 
@@ -46,24 +55,17 @@ This lab assumes you have:
     <copy>
     cat > /tmp/cleanup.sh <<EOF
     #!/bin/bash
-    sudo service rsyslog stop
-    sudo service auditd stop
-    sudo sh -c 'yes| /tmp/oci-image-cleanup.sh'
-    sudo find /var/log -type f -exec cp /dev/null {} \;
-    sudo find /var/log -type f -size 0 -exec rm {} +
-    sudo rm -rf /var/lib/cloud/instances/*
-    sudo rm -f /home/opc/get-pip.py
-    sudo rm -f /home/opc/.bashrc-orig
-    sudo rm -f /home/oracle/.bash_history
-    sudo sed -i -e 's|\\\(^.*PermitRootLogin.*$\\\)|PermitRootLogin no|g' /etc/ssh/sshd_config
-    sudo sed -i -e 's|root:x:0:0:root:/root:/bin/bash|root:x:0:0:root:/root:/sbin/nologin|g' /etc/passwd
-    sudo ln -sf /root/bootstrap/firstboot.sh /var/lib/cloud/scripts/per-instance/firstboot.sh
-    sudo ln -sf /root/bootstrap/eachboot.sh /var/lib/cloud/scripts/per-boot/eachboot.sh
-    sudo rm -f /u01/app/osa/non-marketplace-init/system-configured
-    sudo rm -f /var/log/audit/audit.log
+    systemctl stop rsyslog
+    sh -c 'yes| /tmp/oci-image-cleanup.sh'
+    sed -i -e 's|^.*PermitRootLogin.*\$|PermitRootLogin no|g' /etc/ssh/sshd_config
+    sed -i -e 's|root:x:0:0:root:/root:/bin/bash|root:x:0:0:root:/root:/sbin/nologin|g' /etc/passwd
+    ln -sf /root/bootstrap/firstboot.sh /var/lib/cloud/scripts/per-instance/firstboot.sh
+    ln -sf /root/bootstrap/eachboot.sh /var/lib/cloud/scripts/per-boot/eachboot.sh
+    rm -f /u01/app/osa/non-marketplace-init/system-configured
+    rm -f /var/log/audit/audit.log
     EOF
     chmod +x /tmp/cleanup.sh
-    /tmp/cleanup.sh
+    sudo /tmp/cleanup.sh
 
     </copy>
     ```

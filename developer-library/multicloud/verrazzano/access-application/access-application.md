@@ -1,27 +1,35 @@
-# Access Bob's Book Application and Explore Verrazzano and Other Consoles
+# Access Bobby's Book Application and Explore Verrazzano and Other Consoles
 
 ## Introduction
 
-In Lab 3, we deployed the Bob's Book application. In this lab, we will access the application and verify that it is working. Later, we will explore the Verrazzano and Grafana consoles.
+In Lab 3, we deployed the Bobby's Book application. In this lab, we will access the application and verify that it is working. Later, we will explore the Verrazzano and Grafana consoles.
 
 ### Objectives
 
 In this lab, you will:
 
-* Access the Bob's Book application.
+* Access the Bobby's Book application.
 * Explore the Verrazzano console.
 * Explore the Grafana console.
 
 ### Prerequisites
 
-* Run Lab 1, which creates an OKE Cluster on the Oracle Cloud Infrastructure.
+<if type="freetier">
+* Run Lab 1, which creates an OKE cluster on the Oracle Cloud Infrastructure.
+</if>
+
+<if type="livelabs">
+* Run Lab 1, which configure kubectl to access an OKE cluster on the Oracle Cloud Infrastructure.
+</if>
+
 * Run Lab 2, which installs Verrazzano on a Kubernetes cluster.
-* Run Lab 3, which deploys the Bob's Book application.
+* Run Lab 3, which deploys the Bobby's Book application.
 * You should have a text editor, where you can paste the commands and URLs and modify them, as per your environment. Then you can copy and paste the modified commands for running them in the *Cloud Shell*.
+* We recommend to use Firefox for opening the URLs of Bobby's Books application, Verrazano, Grafana and Kiali Console. However, if you want to use Chrome, then you need to use the undocumented 'thisisunsafe' workaround to allow chrome to accept the cert.
 
-## Task 1: Access the Bob's Book application
+## Task 1: Access the Bobby's Book application
 
-1. We need an `EXTERNAL_IP` address through which we can access the Bob's Book application. To get the `EXTERNAL_IP` address of the istio-ingressgateway service, copy the following command and paste it in the *Cloud Shell*.
+1. We need an `EXTERNAL_IP` address through which we can access the Bobby's Book application. To get the `EXTERNAL_IP` address of the istio-ingressgateway service, copy the following command and paste it in the *Cloud Shell*.
 
       ```bash
       <copy> kubectl get service \
@@ -29,8 +37,13 @@ In this lab, you will:
       -o jsonpath={.status.loadBalancer.ingress[0].ip}; echo</copy>
       ```
 
-   ![hostName](images/1.png " ")
-
+   The output should be similar to the following:
+      ```bash
+         $ kubectl get service \
+         > -n "istio-system" "istio-ingressgateway" \
+         > -o jsonpath={.status.loadBalancer.ingress[0].ip}; echo
+         XX.XX.XX.XX
+      ```
 2. To open the Robert's Book Store Home Page, copy the following URL and replace *XX.XX.XX.XX* with your *EXTERNAL_IP* address which we got in the last step, as shown in the following image.
 
       ```bash
@@ -43,25 +56,25 @@ In this lab, you will:
 
    ![Advanced](images/3.png " ")
 
-4. Select *Proceed to bobs-books.bobs-books. EXTERNAL_IP .nip.io(unsafe)* to access the application.
+
+4. Select *Proceed to bobs-books.bobs-books. EXTERNAL_IP .nip.io(unsafe)* to access the application. If you are the not getting this option for proceed, just type *thisisunsafe* without any space anywhere inside this chrome browser window. As you are typing in the chrome browser window, you can't see it, but as soon as you finish typing *thisisunsafe*, you can see application page immediately. You can find more details [here](https://verrazzano.io/latest/docs/faq/faq/#enable-google-chrome-to-accept-self-signed-verrazzano-certificates).
 
    ![Unsafe access](images/4.png " ")
-
    ![Robert Bookstore](images/5.png " ")
 
-5. To open the Bob's Book Store Home page, open a new tab and copy the following URL and replace *XX.XX.XX.XX* with your `EXTERNAL_IP` address, as shown in the following image.
+5. To open the Bobby's Book Store Home page, open a new tab and copy the following URL and replace *XX.XX.XX.XX* with your `EXTERNAL_IP` address, as shown in the following image.
 
       ```bash
       <copy>https://bobs-books.bobs-books.XX.XX.XX.XX.nip.io/bobbys-front-end/</copy>
       ```
 
-   ![Bobs bookstore](images/6.png " ")
+   ![Bobbys bookstore](images/6.png " ")
 
    ![Bob bookstore](images/7.png " ")
 
    > Leave this page open  because we will use it in Lab 8.
 
-6. To open the Bob's Book Order Manager UI, open a new tab and copy the following URL and replace *XX.XX.XX.XX* with your *EXTERNAL_IP* address as shown in the following image.
+6. To open the Bobby's Book Order Manager UI, open a new tab and copy the following URL and replace *XX.XX.XX.XX* with your *EXTERNAL_IP* address as shown in the following image.
 
       ```bash
       <copy>https://bobs-books.bobs-books.XX.XX.XX.XX.nip.io/bobs-bookstore-order-manager/orders</copy>
@@ -69,7 +82,7 @@ In this lab, you will:
 
    ![order manager](images/8.png " ")
 
-7. Go Back to the *Bob's Books* page and let's purchase a book. Click *Books* as shown in the following image.
+7. Go Back to the *Bobby's Books* page and let's purchase a book. Click *Books* as shown in the following image.
 
    ![Check out order](images/38.png " ")
 
@@ -92,23 +105,35 @@ In this lab, you will:
 
 Verrazzano installs several consoles. The endpoints for an installation are stored in the `Status` field of the installed Verrazzano Custom Resource.
 
-1. You can get the endpoints for these consoles by using the following command and looking at the `Status.Instance` field:
+1. You can get the endpoints for these consoles by using the following command:
 
       ```bash
-      <copy>kubectl get vz -o yaml</copy>
+      <copy>kubectl get vz -o jsonpath="{.items[].status.instance}" | jq .</copy>
       ```
 
-   ![Console URL](images/12.png " ")
-
-   This results in output similar to the following (output abbreviated to show only the relevant portions). Click the links to open the *Verrazzano* Console as shown:
-
-   ![Verrazzano Console](images/13.png " ")
+   The output should be similar to the following:
+      ```bash
+      $ kubectl get vz -o jsonpath="{.items[].status.instance}" | jq .
+      {
+      "consoleUrl": "https://verrazzano.default.XX.XX.XX.XX.nip.io",
+      "elasticUrl": "https://elasticsearch.vmi.system.default.XX.XX.XX.XX.nip.io",
+      "grafanaUrl": "https://grafana.vmi.system.default.XX.XX.XX.XX.nip.io",
+      "keyCloakUrl": "https://keycloak.default.XX.XX.XX.XX.nip.io",
+      "kialiUrl": "https://kiali.vmi.system.default.XX.XX.XX.XX.nip.io",
+      "kibanaUrl": "https://kibana.vmi.system.default.XX.XX.XX.XX.nip.io",
+      "prometheusUrl": "https://prometheus.vmi.system.default.1XX.XX.XX.XX.nip.io",
+      "rancherUrl": "https://rancher.default.XX.XX.XX.XX.nip.io"
+      }
+      $
+      ```
+    Click the links to open the *Verrazzano* Console.
 
 2. Click *Advanced*.
 
    ![Advanced](images/14.png " ")
 
-3. Select *Proceed to verrazzano default XX.XX.XX.XX.nip.io(unsafe)*.
+3. Select *Proceed to verrazzano default XX.XX.XX.XX.nip.io(unsafe)*. If you are the not getting this option for proceed, just type *thisisunsafe* without any space. Do the same for opening other URLs of Verrazzano Consoles. You can find more details [here](https://verrazzano.io/latest/docs/faq/faq/#enable-google-chrome-to-accept-self-signed-verrazzano-certificates).
+
 
    ![Proceed](images/15.png " ")
 
@@ -116,7 +141,7 @@ Verrazzano installs several consoles. The endpoints for an installation are stor
 
    ![Keycloak Authentication](images/16.png " ")
 
-5. Select *Proceed to Keycloak default XX.XX.XX.XX.nip.io(unsafe)*.
+5. Select *Proceed to Keycloak default XX.XX.XX.XX.nip.io(unsafe)*. If you are the not getting this option for proceed, just type *thisisunsafe* without any space.
 
    ![Proceed](images/17.png " ")
 
@@ -126,7 +151,12 @@ Verrazzano installs several consoles. The endpoints for an installation are stor
       <copy>kubectl get secret --namespace verrazzano-system verrazzano -o jsonpath={.data.password} | base64 --decode; echo</copy>
       ```
 
-   ![Verrazzano Password](images/18.png " ")
+   The output should be similar to the following:
+      ```bash
+      $ kubectl get secret --namespace verrazzano-system verrazzano -o jsonpath={.data.password} | base64 --decode; echo
+      aBsNxxZnl1ea3Vzp
+      $
+      ```
 
 7. Copy the password and go back to the browser, where the *Verrazzano Console* is open.
 
@@ -140,7 +170,7 @@ Verrazzano installs several consoles. The endpoints for an installation are stor
 
    ![Home Page](images/20.png " ")
 
-9. Because we have deployed the Bob's Book application, you can see it under *OAM Applications*. Select *bobs-books* to view different components of this application.
+9. Because we have deployed the Bobby's Book application, you can see it under *OAM Applications*. Select *bobs-books* to view different components of this application.
 
    ![Components](images/21.png " ")
 
@@ -172,7 +202,7 @@ Verrazzano installs several consoles. The endpoints for an installation are stor
 
     ![Advanced](images/27.png " ")
 
-4. Select *grafana.vmi.system.default.XX.XX.XX.XX.nip.io(unsafe)*.
+4. Select *grafana.vmi.system.default.XX.XX.XX.XX.nip.io(unsafe)*. If you are the not getting this option for proceed, just type *thisisunsafe* without any space.
 
     ![proceed](images/28.png " ")
 
@@ -200,12 +230,36 @@ Verrazzano installs several consoles. The endpoints for an installation are stor
 
     ![Coherence](images/34.png " ")
 
-9. Here you can see the details of the *Coherence Cluster*. For the Bob's Books application, we have two Coherence clusters, one for Bob's Books and another for Robert's Books. You need to select the drop-down menu for *Cluster Name* to view both the clusters.
+9. Here you can see the details of the *Coherence Cluster*. For the Bobby's Books application, we have two Coherence clusters, one for Bobby's Books and another for Robert's Books. You need to select the drop-down menu for *Cluster Name* to view both the clusters.
 
     ![Dashboard](images/35.png " ")
 
     ![Dashboard](images/37.png " ")
 
+## Task 4: Explore the Kiali Console
+
+1. Go to Verrazzao console and click on the link for Kiali Console.
+
+   ![Dashboard](images/43.png " ")
+
+2. On Left side, Click on Graph.
+
+   ![Dashboard](images/44.png " ")
+
+3. In the Namespace dropdown, check the box for *bobs-books* and make the curser move outside the dropdown. 
+   ![Dashboard](images/45.png " ")
+
+4. You can view the graphical view of *bobs-books* application. Click *Legend* to view the *Legend* view.
+
+   ![Dashboard](images/46.png " ")
+
+5. Here you can view, what each shapes represents, like circle represents the *Workloads*.
+
+   ![Dashboard](images/47.png " ")
+
+6. On Left side, Click on *Applications*.
+
+   ![Dashboard](images/48.png " ")
 
 
 Leave the *Cloud Shell* open; we will use it for upcoming labs.
@@ -214,4 +268,4 @@ Leave the *Cloud Shell* open; we will use it for upcoming labs.
 
 * **Author** -  Ankit Pandey
 * **Contributors** - Maciej Gruszka, Peter Nagy
-* **Last Updated By/Date** - Kamryn Vinson, July 2021
+* **Last Updated By/Date** - Kamryn Vinson, January 2022

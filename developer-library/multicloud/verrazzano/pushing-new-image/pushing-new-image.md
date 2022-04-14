@@ -31,7 +31,7 @@ In this step, we are going to generate an *Authentication Token*, that we will u
 
     ![Generate Token](images/3.png " ")
 
-4. Copy *helidon-stock-application* and paste it in the *Description* box and click *Generate Token*.
+4. Copy *`helidon-stock-application-your_first_name`* and paste it in the *Description* box and click *Generate Token*.
 
     ![Token create](images/4.png " ")
 
@@ -51,10 +51,16 @@ In this step, we are going to generate an *Authentication Token*, that we will u
     ```bash
     <copy> docker login `END_POINT_OF_REGION_NAME`</copy>
     ```
-
+<if type="freetier">
 3. In the previous lab, you determined the Tenancy Namespace. Make the user name as follows: `NAMESPACE_OF_YOUR_TENANCY`/oracleidentitycloudservice/`YOUR_ORACLE_CLOUD_USERNAME`. Here, replace `NAMESPACE_OF_YOUR_TENANCY` with your tenancy's namespace and `YOUR_ORACLE_CLOUD_USERNAME` with your Oracle Cloud Account user name and then copy the replaced user name from your text editor and paste it in the *Cloud Shell*. For Password , paste the Authentication Token from your text editor or where you saved it.
 
     ![Login to Oracle Cloud Container Registry](images/6.png " ")
+</if>
+
+<if type="livelabs">
+3. In the previous lab, you determined the Tenancy Namespace. Make the user name as follows: `NAMESPACE_OF_YOUR_TENANCY`/`YOUR_ORACLE_CLOUD_USERNAME`. You need to use tenancy namespace and username in lower case, while performing docker login. Here, replace `NAMESPACE_OF_YOUR_TENANCY` with your tenancy's namespace and `YOUR_ORACLE_CLOUD_USERNAME` with your Oracle Cloud Account user name and then copy the replaced user name from your text editor and paste it in the *Cloud Shell*. For Password , paste the Authentication Token from your text editor or where you saved it.
+
+</if>
 
 4. Go back to the Container Registry, select *Hamburger Menu -> Developer Services -> Container Registry*.
 
@@ -64,23 +70,23 @@ In this step, we are going to generate an *Authentication Token*, that we will u
 
     ![Repository Create](images/8.png " ")
 
-6. Select the compartment and enter *helidon-stock-application* as the Repository Name, then choose Access as *Public* and then click *Create Repository*.
+6. Select the compartment and enter *`helidon-stock-application-your_first_name`* as the Repository Name, then choose Access as *Public* and then click *Create Repository*.
 
     ![Repository Description](images/9.png " ")
 
-    After the repository *helidon-stock-application* has been created, you can verify the Namespace and it should be same as your tenancy's namespace.
+    After the repository *`helidon-stock-application-your_first_name`* has been created, you can verify the Namespace and it should be same as your tenancy's namespace.
 
     ![Verify Namespace](images/10.png " ")
 
-7. As part of Lab 5, you copied the Docker image full name into your text editor. To push your Docker image into your repository inside the Oracle Cloud Container Registry, copy and paste the following command in your text editor and then replace `ENDPOINT_OF_YOUR_REGION_NAME`/`NAMESPACE_OF_YOUR_TENANCY`/helidon-stock-application:1.0 with Docker image full name, which you have saved in your text editor.
+7. As part of Lab 5, you copied the Docker image full name into your text editor. To push your Docker image into your repository inside the Oracle Cloud Container Registry, copy and paste the following command in your text editor and then replace *`ENDPOINT_OF_YOUR_REGION_NAME`/`NAMESPACE_OF_YOUR_TENANCY`/`helidon-stock-application-your_first_name`:1.0* with Docker image full name, which you have saved in your text editor.
 
     ```bash
-    <copy>docker push `ENDPOINT_OF_YOUR_REGION_NAME`/`NAMESPACE_OF_YOUR_TENANCY`/helidon-stock-application:1.0</copy>
+    <copy>docker push `ENDPOINT_OF_YOUR_REGION_NAME`/`NAMESPACE_OF_YOUR_TENANCY`/helidon-stock-application-your_first_name:1.0</copy>
     ```
 
     ![Docker push](images/11.png " ")
 
-    After the *docker push* command runs successfully, expand the *helidon-stock-application* repository and you will notice a new image has been uploaded in this repository.
+    After the *docker push* command runs successfully, expand the *`helidon-stock-application-your_first_name`* repository and you will notice a new image has been uploaded in this repository.
 
     ![Image uploaded](images/12.png " ")
 
@@ -90,4 +96,4 @@ Leave the *Cloud Shell* and Container Registry repository page open; we will nee
 
 * **Author** -  Ankit Pandey
 * **Contributors** - Maciej Gruszka, Peter Nagy
-* **Last Updated By/Date** - Kamryn Vinson, July 2021
+* **Last Updated By/Date** - Kamryn Vinson, January 2022

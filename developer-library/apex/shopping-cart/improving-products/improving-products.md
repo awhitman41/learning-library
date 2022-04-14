@@ -303,7 +303,7 @@ When running products page, you will notice that image of the products is missin
 
 To upload images please follow these steps:
 
-1. [Download images](https://objectstorage.us-ashburn-1.oraclecloud.com/p/nDA-UBc8y27dbtyRu0DVR0u6CRUI1jRXTAP17J_Cd4QqUaTCxjdG4puUa4aF1qGm/n/c4u04/b/developer-library/o/clothing-images.zip) for your application.
+1. [Download images](https://objectstorage.us-ashburn-1.oraclecloud.com/p/LNAcA6wNFvhkvHGPcWIbKlyGkicSOVCIgWLIu6t7W2BQfwq2NSLCsXpTL9wVzjuP/n/c4u04/b/livelabsfiles/o/developer-library/clothing-images.zip) for your application.
 2. Run ACME Shop App.
 3. Click navigation menu, click **Administration**, and then click **Manage Products**.
 4. Edit each of the products by clicking the pencil and upload the image.

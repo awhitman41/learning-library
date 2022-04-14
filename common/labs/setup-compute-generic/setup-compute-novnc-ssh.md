@@ -3,7 +3,7 @@
 ## Introduction
 This lab will show you how to setup a Resource Manager stack that will generate the Oracle Cloud objects needed to run your workshop.
 
-Estimated Time: 15 minutes
+*Estimated Time*: 15 minutes
 
 
 Watch the video below for a walk through of the Environment Setup lab.
@@ -20,7 +20,8 @@ For more information about Terraform and Resource Manager, please see the append
 This lab assumes you have:
 - An Oracle Free Tier or Paid Cloud account
 - SSH Keys (optional)
-- Performed *Lab: Prepare Setup*
+- You have completed:
+    - Lab: Prepare Setup (*Free-tier* and *Paid Tenants* only)
 
 ## Task 1: Create Stack: Choose a Path
 Proceed to deploy your workshop environment using Oracle Resource Manager (ORM) stack
@@ -50,19 +51,25 @@ Your options are:
 
     - **Instance Count:** Accept the default, **1**, unless you intend to create more than one. e.g. for a team
     - **Select Availability Domain:** Select an availability domain from the dropdown list.
-    - **Need Remote Access via SSH? (Leave Uncheck for Remote Desktop only Access - The Default):** Keep the default as checked to only use the remote desktop
+    - **Need Remote Access via SSH?** In this step you have 3 options to select from:
+        - **Option (A)** - Keep Unchecked for Remote Desktop only Access - The Default
+        - **Option (B)** - Check *Need Remote Access via SSH?* and keep *Auto Generate SSH Key Pair* unchecked to enable remote access via SSH protocol, then provide the SSH public key(s).
 
-    If you would like to enable remote access via SSH protocol and unchecked *Need Remote Access via SSH* above, then provide the SSH public key. This assumes that you already have an RSA type SSH key-pair available on the local system where you will be connecting from. If you don't and for more info on creating and using SSH keys for your specific platform and client, please refer to the guide [Generate SSH Keys](https://oracle.github.io/learning-library/common/labs/generate-ssh-key)
+            - **SSH Public Key**: Select from the following two options
+                - *Paste SSH Keys*: Paste the plaintext key strings or
+                - *Choose SSH Key Files*: Drag-n-drop or browse and select valid public keys of *openssh* format from your computer
 
-    - **SSH Public Key**: Select from the following two options
-        - *Paste SSH Key*: Paste the plaintext key string or
-        - *Choose SSH Key File*: Drag-n-drop or browse and select a valid public key of *openssh* format from your computer
+        ![](./images/create-stack-novnc-ssh-2.png " ")
 
-    ![](./images/create-stack-novnc-ssh-2.png " ")
+        ![](./images/create-stack-novnc-ssh-3.png " ")
 
-    ![](./images/create-stack-novnc-ssh-3.png " ")
+        ***Note 1:*** This assumes that you already have an RSA type SSH key-pair available on the local system where you will be connecting from. If you don't and for more info on creating and using SSH keys for your specific platform and client, please refer to the guide [Generate SSH Keys](https://oracle.github.io/learning-library/common/labs/generate-ssh-key)
 
-    ***Note:*** *If you used the Oracle Cloud Shell to create your key, make sure you paste the pub file in a notepad, remove any hard returns.  The file should be one line or you will not be able to login to your compute instance*
+        ***Note 2:*** If you used the Oracle Cloud Shell to create your key, make sure you paste the pub file in a notepad, remove any hard returns.  The file should be one line or you will not be able to login to your compute instance
+
+        - **Option (C)** - Check *Need Remote Access via SSH?* and *Auto Generate SSH Key Pair* to have the keys auto-generated for you during provisioning. If you select this option you will be provided with the private key post provisioning.
+
+        ![](./images/create-stack-novnc-ssh-3b.png " ")
 
     Depending on the quota you have in your tenancy you can choose from standard Compute shapes or Flex shapes. Please visit the Appendix: Troubleshooting Tips for instructions on checking your quota
 
@@ -70,7 +77,7 @@ Your options are:
     - **Instance Shape:** Keep the default or select from the list of Flex shapes in the dropdown menu (e.g *VM.Standard.E4.Flex*).
     - **Instance OCPUS:** Accept the default shown. e.g. (**4**) will provision 4 OCPUs and 64GB of memory. You may also elect to reduce or increase the count by selecting from the dropdown. e.g. `[2-24]`. Please ensure you have the capacity available before increasing.
 
-    If don't have quota for Flex Shapes or you prefer to use fixed shapes, follow the instructions below.  Otherwise skip to the next step.
+    If don't have the required quota for Flex Shapes or you prefer to use fixed shapes, follow the instructions below.  Otherwise skip to the next step.
 
     - **Use Flexible Instance Shape with Adjustable OCPU Count?:** Unchecked
     - **Instance Shape:** Accept the default shown or select from the dropdown. e.g. VM.Standard2.2
@@ -94,7 +101,7 @@ You may now proceed to Task 2 (skip Task 1B).
 ## Task 1B: Create Stack:  Compute only
 If you just completed Task 1A, please proceed to Task 2.  If you have an existing VCN and are comfortable updating VCN configurations, please ensure your VCN meets the minimum requirements. Refer to *Lab: Prepare Setup*       
 
-  *Note:* We recommend letting our stack create the VCN to reduce the potential for error.
+  *Note:* We recommend letting our stack create the VCN to reduce the potential for errors.
 
 1.  Identify the ORM stack zip file downloaded in *Lab: Prepare Setup*
 2.  Login to Oracle Cloud
@@ -104,7 +111,7 @@ If you just completed Task 1A, please proceed to Task 2.  If you have an existin
 
   ![](./images/create-stack.png " ")
 
-4. Select **My Configuration**, click the **Browse** link and select the zip file (dbsec-lab-mkplc-freetier.zip) that you downloaded. Click **Select**.
+4. Select **My Configuration**, click the **Browse** link and select the zip file that you downloaded. Click **Select**.
 
   ![](./images/create-stack-novnc-1.png " ")
 
@@ -117,44 +124,58 @@ If you just completed Task 1A, please proceed to Task 2.  If you have an existin
 
 5. Click **Next**.
 
+6. Enter or select the following:
+
   ![](./images/create-stack-novnc-ssh-5.png " ")
 
-  Enter or select the following:
-    - **Instance Count:** Keep the default to **1** to create only one instance. You may also choose to a higher number if you need more than one instance created.
+    - **Instance Count:** Accept the default, **1**, unless you intend to create more than one. e.g. for a team
     - **Select Availability Domain:** Select an availability domain from the dropdown list.
-    - **Need Remote Access via SSH? (Leave Uncheck for Remote Desktop only Access - The Default):** Keep the default as checked to only use the remote desktop
+    - **Need Remote Access via SSH?** In this step you have 3 options to select from:
+        - **Option (A)** - Keep Unchecked for Remote Desktop only Access - The Default
+        - **Option (B)** - Check *Need Remote Access via SSH?* and keep *Auto Generate SSH Key Pair* unchecked to enable remote access via SSH protocol, then provide the SSH public key(s).
 
-    If you would like to enable remote access via SSH protocol and unchecked *Need Remote Access via SSH* above, then provide the SSH public key. This assumes that you already have an RSA type SSH key-pair available on the local system where you will be connecting from. If you don't and for more info on creating and using SSH keys for your specific platform and client, please refer to the guide [Generate SSH Keys](https://oracle.github.io/learning-library/common/labs/generate-ssh-key)
+            - **SSH Public Key**: Select from the following two options
+                - *Paste SSH Keys*: Paste the plaintext key strings or
+                - *Choose SSH Key Files*: Drag-n-drop or browse and select valid public keys of *openssh* format from your computer
 
-    - **SSH Public Key**: Select from the following two options
-        - *Paste SSH Key*: Paste the plaintext key string or
-        - *Choose SSH Key File*: Drag-n-drop or browse and select a valid public key of *openssh* format from your computer
+        ![](./images/create-stack-novnc-ssh-2.png " ")
 
-    ![](./images/create-stack-novnc-ssh-2.png " ")
+        ![](./images/create-stack-novnc-ssh-3.png " ")
 
-    ![](./images/create-stack-novnc-ssh-3.png " ")
+        ***Note 1:*** This assumes that you already have an RSA type SSH key-pair available on the local system where you will be connecting from. If you don't and for more info on creating and using SSH keys for your specific platform and client, please refer to the guide [Generate SSH Keys](https://oracle.github.io/learning-library/common/labs/generate-ssh-key)
 
-    ***Note:*** *If you used the Oracle Cloud Shell to create your key, make sure you paste the pub file in a notepad, remove any hard returns.  The file should be one line or you will not be able to login to your compute instance*
+        ***Note 2:*** If you used the Oracle Cloud Shell to create your key, make sure you paste the pub file in a notepad, remove any hard returns.  The file should be one line or you will not be able to login to your compute instance
+
+        - **Option (C)** - Check *Need Remote Access via SSH?* and *Auto Generate SSH Key Pair* to have the keys auto-generated for you during provisioning. If you select this option you will be provided with the private key post provisioning.
+
+        ![](./images/create-stack-novnc-ssh-3b.png " ")
+
+    Depending on the quota you have in your tenancy you can choose from standard Compute shapes or Flex shapes. Please visit the Appendix: Troubleshooting Tips for instructions on checking your quota
 
     - **Use Flexible Instance Shape with Adjustable OCPU Count?:** Keep the default as checked (unless you plan on using a fixed shape)
     - **Instance Shape:** Keep the default or select from the list of Flex shapes in the dropdown menu (e.g *VM.Standard.E4.Flex*).
     - **Instance OCPUS:** Accept the default shown. e.g. (**4**) will provision 4 OCPUs and 64GB of memory. You may also elect to reduce or increase the count by selecting from the dropdown. e.g. `[2-24]`. Please ensure you have the capacity available before increasing.
+
+    If don't have the required quota for Flex Shapes or you prefer to use fixed shapes, follow the instructions below.  Otherwise skip to the next step.
+
+    - **Use Flexible Instance Shape with Adjustable OCPU Count?:** Unchecked
+    - **Instance Shape:** Accept the default shown or select from the dropdown. e.g. VM.StandardE2.2
+
+  ![](./images/create-stack-novnc-ssh-4.png " ")
+
+7. For this section we will an existing VNC.  Please make sure it has all of the correct ingress and egress rules otherwise go back to *TASK 1A* and deploy with a self-contained VCN.
     - **Use Existing VCN?:** Check to select.
     - **Select Existing VCN?:** Select existing VCN with regional public subnet and required security list.
 
   *Note:* For an existing VCN Option to be used successful, review the details at the bottom of this section
 
-6. If you prefer to use fixed shapes, follow the instructions below.  Otherwise skip to the next step.
-    - **Use Flexible Instance Shape with Adjustable OCPU Count?:** Unchecked
-    - **Instance Shape:** Accept the default shown or select from the dropdown. e.g. VM.Standard.E2.2
-
   ![](./images/create-stack-novnc-ssh-6.png " ")
 
-7. Review and click **Create**.
+8. Review and click **Create**.
 
   ![](./images/create-stack-novnc-8.png " ")
 
-8. Your stack has is now created and the *Apply* action triggered is running to deploy your environment!
+9. Your stack has is now created and the *Apply* action triggered is running to deploy your environment!
 
   ![](./images/create-stack-novnc-5.png " ")
 
@@ -188,14 +209,44 @@ For ease of execution of this workshop, your VM instance has been pre-configured
 
   ![](images/novnc-deceptive-site-error.png " ")
 
-## Appendix 1:  Terraform and Resource Manager
+## Appendix 1:  Using Auto-generated SSH Keys to connect to your instance via an SSH terminal
+
+If you elected to auto-generate the SSH key-pair at provisioning, proceed as indicated below.
+
+In this example we will be illustrating connection from a Unix-style terminal such as *Mobaxterm*, MacOS terminal, etc.. For *Putty* on Windows, please refer to the guide [Generate SSH Keys](https://oracle.github.io/learning-library/common/labs/generate-ssh-key) on how to convert the key to the required *.ppk* format.
+
+1. Click *Copy* to get the private key and paste into a file on the system with an SSH client where you intend to initiate the connection. e.g. *mykey_rsa*.
+
+    ![](./images/create-stack-novnc-ssh-9.png " ")
+
+2. Restrict the permissions on the file to *0600*
+
+    ```
+    <copy>
+    chmod 0600 mykey_rsa
+    </copy>
+    ```
+
+    ![](./images/create-stack-novnc-ssh-10.png " ")
+
+3. Connect to your instance using the key.
+
+    ```
+    <copy>
+    ssh -i <path to mykey_rsa opc>@<my instance public IP>
+    </copy>
+    ```
+    ![](./images/create-stack-novnc-ssh-11.png " ")
+
+
+## Appendix 2:  Terraform and Resource Manager
 Terraform is a tool for building, changing, and versioning infrastructure safely and efficiently.  Configuration files describe to Terraform the components needed to run a single application or your entire datacenter.  In this lab a configuration file has been created for you to build network and compute components.  The compute component you will build creates an image out of Oracle's Cloud Marketplace.  This image is running Oracle Linux 7.
 
 Resource Manager is an Oracle Cloud Infrastructure service that allows you to automate the process of provisioning your Oracle Cloud Infrastructure resources. Using Terraform, Resource Manager helps you install, configure, and manage resources through the "infrastructure-as-code" model. To learn more about OCI Resource Manager, take a watch the video below.
 
 [](youtube:udJdVCz5HYs)
 
-## Appendix 2: Troubleshooting Tips
+## Appendix 3: Troubleshooting Tips
 If you encountered any issues during the lab, follow the steps below to resolve them.  If you are unable to resolve, please skip to the **Need Help** section to submit your issue via our  support forum.
 - Availability Domain Mismatch
 - Limits Exceeded
@@ -278,6 +329,8 @@ Modify your stack to use fixed shapes instead.
 ![](./images/standardshape.png " ")
 
 
+You may now **proceed to the next lab**
+
 ## Acknowledgements
 * **Author** - Rene Fontcha, LiveLabs Platform Lead, NA Technology
-* **Last Updated By/Date** - Rene Fontcha, LiveLabs Platform Lead, NA Technology, August 2021
+* **Last Updated By/Date** - Rene Fontcha, LiveLabs Platform Lead, NA Technology, March 2022

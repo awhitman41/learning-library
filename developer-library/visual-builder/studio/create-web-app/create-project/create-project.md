@@ -52,7 +52,7 @@ As someone who creates a project, you'll automatically become the project's owne
 
 6.  Leave other fields to their default settings and click **Finish**.
 
-    Wait for the project to be provisioned. Once provisioning completes, you'll see the Project Home page, which serves as a window to your workspace as well as to your environments, repositories, and a recent activities feed. On the left are a series of tabs showing all the project components that are available.
+    Wait for the project to be provisioned. Once provisioning completes, you'll see the Project Home page, which serves as a window to your workspace, your environments, and repositories, as well as a recent activities feed. On the left are a series of tabs showing all the project components that are available.
 
     ![](images/project-home.png " ")
 
@@ -60,19 +60,19 @@ As someone who creates a project, you'll automatically become the project's owne
 
 Everything you need to start building a visual application is now created for you in this project. Let's step through some key components to better understand your project environment.
 
-1.  On the Project Home page, you'll see the **tutorial-hr-project.git** repository on the right in the Repositories tab. This Git repository stores your visual application's source files and is also known as the project's _remote_ repository. Click the **tutorial-hr-project.git** link to see your project's remote branches, `main` and `hrbranch`, created with initial content for your visual application. (The `main` branch is the default branch created when a new repository is generated and is the project's source of truth.)
+1.  On the Project Home page, you'll see the **tutorial-hr-project.git** repository under Workspaces as well as in the Repositories tab on the right. This Git repository stores your visual application's source files and is also known as the project's _remote_ repository. Click the **tutorial-hr-project.git** link to see your project's remote branches, `main` and `hrbranch`, created with initial content for your visual application. Select **hrbranch**; the `main` branch is the default branch created when a new repository is generated and is the project's source of truth.
 
     ![](images/repo.png " ")
 
-2.  In the left navigation, click **Workspaces**![Workspaces icon](images/vbs-workspaces-icon.png)to view the **HR Visual Application** workspace. This workspace contains a working copy of `hrbranch` and serves as your _local_ repository. The `hrbranch` initially has the same set of source files as the `main` branch, but as you work with your visual application, it will include the changes you make. Your changes can't be seen by others until you save them from the local branch to a remote branch.
+2.  In the left navigator, click **Workspaces**![Workspaces icon](images/vbs-workspaces-icon.png)to view the **HR Visual Application** workspace. This workspace contains a working copy of `hrbranch` and serves as your _local_ repository. The `hrbranch` initially has the same set of source files as the `main` branch, but as you work with your visual application, it will include the changes you make. Your changes can't be seen by others until you save them from the local branch to a remote branch.
 
     ![](images/workspace.png " ")
 
-3.  Click **Environments** ![Environments icon](images/vbs-environments-icon.png) in the left navigation to view the development environment that points to your VB instance. Here, you can view details of your VB instance and all the applications you deploy to this instance.  
+3.  Click **Environments** ![Environments icon](images/vbs-environments-icon.png) in the left navigator to view the development environment that points to your VB instance. Here, you can view details of your VB instance and all the applications you deploy to this instance.  
 
     ![](images/env.png " ")
 
-4.  Click **Builds** ![Builds icon](images/vbs-builds-icon.png) in the left navigation to view the default build jobs that package and deploy your visual application to the development instance. The `Visual-Application-Package` job generates the visual application's artifact files. The `Visual-Application-Deploy` job deploys the artifact files to the development instance.
+4.  Click **Builds** ![Builds icon](images/vbs-builds-icon.png) in the left navigator to view the default build jobs that package and deploy your visual application to the development instance. The `Visual-Application-Package` job generates the visual application's artifact files. The `Visual-Application-Deploy` job deploys the artifact files to the development instance.
 
     ![](images/build-jobs.png " ")
 
@@ -90,19 +90,21 @@ Now that your project is provisioned, let's set up the credentials that VB Studi
 
 2.  On the Job Configuration page, click **Steps**.
 
-3.  In the **Username** and **Password** fields, enter the credentials of a user who can deploy to the VB development instance. Click **Save**.
+3.  In the **Username** and **Password** fields, enter the credentials of a user who can deploy to the VB development instance.
 
     ![](images/build-auth-credentials.png)
 
-   **Tip:** While on this page, take a quick look at other advanced settings:
-    - Notice the **Include the application version in the URL** check box that's selected by default. This option adds a version to the URL when your application is deployed (for example, https://host/something-else/0.1/index.html). This version number is useful to identify multiple versions during development, but when your app is ready to go live, you'll want to deselect this option to remove the version and replace it instead with **live** (https:/host/something-else/live/index.html).
+   **Tip:** Before you save your changes, take a quick look at other advanced settings on this page:
+    - Notice the **Include the application version in the URL** check box that's selected by default. This option adds a version to the URL when your application is deployed, for example, https://host/something-else/**0.1**/index.html. This version number is useful to identify multiple versions during development, but when your app is ready to go live, you'll want to deselect this option, so your application URL is something like https:/host/something-else/**live**/index.html, without a version number in it.
     - Take note of the **Use clean database** option, also selected by default. This option uses a new database by default to store your application's data. To keep your data after initially importing it (which we'll do in a later lab), you'll need to select the **Keep existing environment data** option.
+
+    Click **Save**.
 
 ## Task 4: Add team members
 
 For the purposes of this workshop, let's assume that other members of your team will work with you on this visual application—which means you'll need to add them to this project. As the project owner, you can control what others can do in this project by granting them membership as a Developer Full Access, Developer Limited Access, or Contributor.
 
-1.  Click **Project Home** ![Project Home icon](images/vbs-project-home-icon.png) in the left navigation.
+1.  Click **Project Home** ![Project Home icon](images/vbs-project-home-icon.png) in the left navigator.
 
 2.  On the Project Home page, click **Team**, then **\+ Add Member**.
 
@@ -112,10 +114,10 @@ For the purposes of this workshop, let's assume that other members of your team 
 
     ![](images/team-add-member.png " ")
 
-    An email containing project details is sent to Clara Coder. Your recent activities feed is also updated.
+    Your recent activities feed is updated and an email containing project details is sent to Clara Coder. To receive email notifications, the teammate's email address must be verified and notifications set properly in Preferences. 
 
     You may **proceed to the next lab**.
 
 ## Acknowledgements
-* **Created By/Date** - Sheryl Manoharan, VB Studio User Assistance, November 2021
-<!--* **Last Updated By** - October 2021 --!>
+* **Author** - Sheryl Manoharan, VB Studio User Assistance, November 2021
+* **Last Updated By/Date** - Sheryl Manoharan, February 2022

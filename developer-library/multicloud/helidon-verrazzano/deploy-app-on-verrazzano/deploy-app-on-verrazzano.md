@@ -124,39 +124,41 @@ To run this lab, you must have:
 
 ## Task 1: Verify the Verrazzano Installation is Complete
 
-1. Open the Cloud Shell console where you started the Verrazzano installations. If the console stopped due to a timeout, log in and start the Cloud Shell again.
-
-2. To verify a successful Verrazzano installation, copy the following command and paste it in the Cloud Shell. This command checks that the *InstallComplete* condition has been met and notifies you. In this example, *my-verrazzano* is the name of the *Verrazzano Custom Resource*.
+1. In Lab 3, we ran the below copy the command in the Cloud Shell. This command checks that the *InstallComplete* condition has been met and notifies you. In this example, *example-verrazzano* is the name of the *Verrazzano Custom Resource*.
 
 ```bash
-<copy>kubectl wait --timeout=10m --for=condition=InstallComplete verrazzano/my-verrazzano</copy>
+<copy>kubectl wait --timeout=20m --for=condition=InstallComplete verrazzano/example-verrazzano</copy>
 ```
-When the process is complete you should see the `verrazzano.install.verrazzano.io/my-verrazzano condition met` response.
+When the process is complete you should see the `verrazzano.install.verrazzano.io/example-verrazzano condition met` response.
 
-Or, another option is to check that the pods associated with Verrazzano have a *Running* status.
+Or, another option is to check that the pods associated with Verrazzano have a *Running* status. You will have 16 pods in the *Running* state.
 
 ```bash
 <copy>kubectl get pods -n verrazzano-system</copy>
 ```
-You should get similar result:
+
+The output should be similar to the following:
+
 ```bash
-$ kubectl get pods -n verrazzano-system
-NAME                                               READY   STATUS    RESTARTS   AGE
-coherence-operator-6497f8d5d5-jxrk6                1/1     Running   1          47min
-fluentd-k5x9g                                      2/2     Running   2          47min
-fluentd-tdsp2                                      2/2     Running   1          47min
-fluentd-vq6tb                                      2/2     Running   1          47min
-oam-kubernetes-runtime-769d5d779-wrm75             1/1     Running   0          47min
-verrazzano-api-b698dfd65-rgcmr                     2/2     Running   0          47min
-verrazzano-application-operator-54cfdc77db-lhbkm   1/1     Running   0          47min
-verrazzano-console-8677b86b65-jzkbt                2/2     Running   0          47min
-verrazzano-monitoring-operator-6458486845-6jzzf    1/1     Running   0          47min
-verrazzano-operator-d7576746-nktbj                 1/1     Running   0          47min
-vmi-system-es-master-0                             3/3     Running   0          47min
-vmi-system-grafana-6c9fd469cd-vnb8h                3/3     Running   0          47min
-vmi-system-kibana-676958bc56-7w8b2                 3/3     Running   0          47min
-vmi-system-prometheus-0-84897fb854-sgvr4           4/4     Running   0          47min
-weblogic-operator-786b8db578-gtf54                 2/2     Running   0          47min
+kubectl get pods -n verrazzano-system
+NAME                                           READY STATUS    RESTARTS   AGE
+coherence-operator-dcfb446df-5dckp             1/1   Running   1          8m57s
+fluentd-cgrg5                                  2/2   Running   1          6m22s
+fluentd-jztnn                                  2/2   Running   1          6m22s
+fluentd-n4s95                                  2/2   Running   1          6m22s
+oam-kubernetes-runtime-549db9798b-grxj4        1/1   Running   0          8m50s
+verrazzano-application-operator-54668f668-bng5 1/1   Running   0          8m9s
+verrazzano-authproxy-86fb64c9f-4mffq           2/2   Running   0          6m22s
+verrazzano-console-6c8d4875cf-r6bsv            2/2   Running   0          6m22s
+verrazzano-monitoring-operator-787bfc7f86-p6qb 1/1   Running   0          6m22s
+verrazzano-operator-6cc79dfdcc-6l9lt           1/1   Running   0          6m22s
+vmi-system-es-master-0                         2/2   Running   0          4m37s
+vmi-system-grafana-666f6854b4-xrmwf            2/2   Running   0          4m37s
+vmi-system-kiali-5949966fb8-gczd5              2/2   Running   0          6m17s
+vmi-system-kibana-95d8c5d96-9qr9j              2/2   Running   0          4m37s
+vmi-system-prometheus-0-74478c9d44-gk85g       3/3   Running   0          3m6s
+weblogic-operator-5df5f94bd7-tkg74             2/2   Running   0          8m17s
+$
 ```
 
 ## Task 2: Deploy the Helidon quickstart-mp application
@@ -172,18 +174,18 @@ cd ~
 ```
 2. Modify the image name in *hello-helidon-comp.yaml*. You can use the `vi` editor:
 ```bash
-<copy>vi hello-helidon-comp.yaml</copy>
+<copy>vi ~/hello-helidon-comp.yaml</copy>
 ```
 
 3. Use `i` to change insert mode and modify the image name to reflect your repository path at line 23:
 ```yaml
-image: "END_POINT_OF_YOUR_REGION/NAMESPACE_OF_YOUR_TENANCY/quickstart-mp:1.0"
+image: "END_POINT_OF_YOUR_REGION/NAMESPACE_OF_YOUR_TENANCY/quickstart-mp-your_first_name:1.0"
 ```
 For example:
 ```yaml
-image: "ocir.io/tenancynamespace/quickstart-mp:1.0"
+image: "ocir.io/tenancynamespace/quickstart-mp-your_first_name:1.0"
 ```
-4. Use `Esc` the quit insert mode and type `wq` to save changes and close the editor.
+4. Use `Esc` the quit insert mode and type `:wq` to save changes and close the editor.
 
 
 5. Create a `hello-helidon` namespace for the Helidon quickstart-mp application. We will keep all Kubernetes artifacts in the separate namespace.
@@ -222,15 +224,19 @@ The `hello-helidon-app.yaml` file is a Verrazzano application configuration file
 ```
 
 8. Wait for the pods to be in *Running* status. Use this *kubectl* command to wait for all the pods to be in the *Running* state within the hello-helidon namespace. It takes around 1-2 minutes.
+
 ```bash
 <copy>kubectl wait --for=condition=Ready pods --all -n hello-helidon --timeout=600s</copy>
 ```
+
 When the pods are ready you can see similar response:
+
 ```bash
 $ kubectl wait --for=condition=Ready pods --all -n hello-helidon --timeout=600s
 pod/hello-helidon-deployment-58fdd5cd4-94wjf condition met
 ```
 You can also list the pods directly to check their status:
+
 ```bash
 $ kubectl  get po -n hello-helidon
 NAME                                       READY   STATUS    RESTARTS   AGE
@@ -242,14 +248,19 @@ hello-helidon-deployment-58fdd5cd4-94wjf   2/2     Running   0          34m
 ## Task 3: Verify the Successful Deployment of the Helidon quickstart-mp Application
 
 1. Verify the `help/allGreetings` endpoint. To determine the URL that was constructed from the external/load balancer IP and application configuration, execute the following command:
+
 ```bash
 <copy>echo https://$(kubectl get gateway hello-helidon-hello-helidon-appconf-gw -n hello-helidon -o jsonpath={.spec.servers[0].hosts[0]})/help/allGreetings</copy>
 ```
+
 This will print the proper URL to your REST endpoint, for example:
+
 ```bash
-https://hello-helidon-appconf.hello-helidon.129.146.154.97.nip.io/help/allGreetings
+https://hello-helidon-appconf.hello-helidon.xx.xx.xx.xx.nip.io/help/allGreetings
 ```
+
 2. Use this link to test from your browser. Due to self-signed certificates, however, you need to accept risk and allow the browser to continue the request processing.
+
 You may find it easier to use `curl` because the response is only a string:
 
 ```bash
@@ -257,6 +268,8 @@ You may find it easier to use `curl` because the response is only a string:
 ```
 
 You should see the same result you received during the development:
+
+
 ```yaml
 [Hello, Привет, Hola, Hallo, Ciao, Nǐ hǎo, Marhaba, Olá]
 ```
@@ -267,4 +280,4 @@ You should see the same result you received during the development:
 
 * **Author** -  Peter Nagy
 * **Contributors** - Maciej Gruszka, Peter Nagy
-* **Last Updated By/Date** - Peter Nagy, September 2021
+* **Last Updated By/Date** - Ankit Pandey, March 2022

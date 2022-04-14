@@ -1,4 +1,4 @@
-# Track Java Usage in a Container
+# Track Java Usage in a container
 
 ## Introduction
 
@@ -60,7 +60,7 @@ The following steps will describe installation of Docker on a compute instance r
     sudo systemctl start docker
     </copy>
     ```
-5. You can check the version of your Docker installation by running the following
+5. You can check the version of your Docker installation by running the following:
     ```
     <copy>
     sudo docker version
@@ -340,6 +340,20 @@ You should now have a compute instance with Docker installed and a Docker image 
 2. You may now check your Fleet in OCI console to see if your Docker container was detected. You should be able to see the OddNumbers.jar under **Applications**.
   ![image of fleet details page showing jar file in container](/../images/fleets-details-docker.png)
 
+You may now **proceed to the next lab.**
+
+## Troubleshoot Docker Issues
+
+**For Task 1**
+* If you encounter a timeout error similar to the following:
+
+    ```
+    Get "https://registry-1.docker.io/v2/": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+    docker: Get "https://registry-1.docker.io/v2/": context deadline exceeded (Client.Timeout exceeded while awaiting headers).
+    See 'docker run --help'.
+    ```
+    You may be connected to proxies or VPNs. Disconnect any connection or resolve any issues related to your proxy or VPN and try again.
+
 ## Want to Learn More?
 
 * You may also find more Oracle resources for your containers at the Oracle Github repository [here](https://github.com/oracle/docker-images).
@@ -347,4 +361,4 @@ You should now have a compute instance with Docker installed and a Docker image 
 ## Acknowledgements
 
 * **Author** - Alvin Lam, Java Management Service
-* **Last Updated By/Date** - Alvin Lam, November 2021
+* **Last Updated By/Date** - Xin Yi Tay, February 2022

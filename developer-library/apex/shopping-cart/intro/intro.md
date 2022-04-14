@@ -47,8 +47,8 @@ In this lab, you will:
 
 ### Downloads
 
-- [Download the application](https://objectstorage.us-ashburn-1.oraclecloud.com/p/fMM4HD8nK2lIO5AW0Cms3Ycaew-FYd4xxvZzKMJobKK1qpk3Ybc1_SS-wIHa_3A_/n/c4u04/b/developer-library/o/shopping-cart-app.sql). To run the app, please run the steps described in Lab 1, 2, and 3.
-- [Download images for your application](https://objectstorage.us-ashburn-1.oraclecloud.com/p/yzrA6TXcjR6Py4wSmKbvtz3ar8lmjAP7XSwNhTDCgN1XbvX8RXdaa4yNCHyGdn89/n/c4u04/b/developer-library/o/products-images.zip). 
+- [Download the application](https://objectstorage.us-ashburn-1.oraclecloud.com/p/LNAcA6wNFvhkvHGPcWIbKlyGkicSOVCIgWLIu6t7W2BQfwq2NSLCsXpTL9wVzjuP/n/c4u04/b/livelabsfiles/o/developer-library/shopping-cart-app.sql). To run the app, please run the steps described in Lab 1, 2, and 3.
+- [Download images for your application](https://objectstorage.us-ashburn-1.oraclecloud.com/p/LNAcA6wNFvhkvHGPcWIbKlyGkicSOVCIgWLIu6t7W2BQfwq2NSLCsXpTL9wVzjuP/n/c4u04/b/livelabsfiles/o/developer-library/products-images.zip). 
 
 ## Learn More - *Useful Links*
 

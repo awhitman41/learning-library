@@ -1,4 +1,4 @@
-# Setup Compute Instance
+# Set up compute instance
 
 ## Introduction
 
@@ -10,7 +10,7 @@ Quick walk through on how to set up your compute instance.
 
 [](youtube:O79UmNZwrWE)
 
-*Note: The OCI Cloud Service Console navigation may look different then what you see in the video as it is subject to change.*
+>**Note:** The OCI Cloud Service Console navigation may look different then what you see in the video as it is subject to change.
 
 ### About Terraform and Oracle Cloud Resource Manager
 For more information about Terraform and Resource Manager, please see the appendix below.
@@ -27,30 +27,30 @@ This lab assumes you have:
 - An Oracle Free Tier or Paid Cloud account
 - SSH Keys
 
-## Task 1: Setup Stack
+## Task 1: Set up Stack
 If you already have a VCN created, skip this step and proceed to *STEP 3*.
 
-1.  Click on the link below to download the Resource Manager zip file you need to build your environment.  
-    - [livelabs-db19ccompute-0812.zip](https://objectstorage.us-ashburn-1.oraclecloud.com/p/iO4PFcWBTMu5tTmocKSYw2zFv-ruHik0VGQSRTdr80A1So8UTWGf7Ggl02f4UKuN/n/c4u04/b/labfiles/o/livelabs-db19ccompute-0812.zip) - Packaged terraform instance creation script for creating instance running the 19c Oracle Database
+1.  Click on the link below to download the Resource Manager zip file you need to build your environment.
+    - [livelabs-db19ccompute-0812.zip](https://objectstorage.us-ashburn-1.oraclecloud.com/p/jyHA4nclWcTaekNIdpKPq3u2gsLb00v_1mmRKDIuOEsp--D6GJWS_tMrqGmb85R2/n/c4u04/b/livelabsfiles/o/labfiles/livelabs-db19ccompute-0812.zip) - Packaged terraform instance creation script for creating instance running the 19c Oracle Database
 2.  Save in your downloads folder.
 3.  Login to your Oracle Cloud account.
 4.  Click the **Navigation Menu** in the upper left, navigate to **Developer Services**, and select **Stacks**.
 
-	![](https://raw.githubusercontent.com/oracle/learning-library/master/common/images/console/developer-resmgr-stacks.png " ")
+	![Stacks](https://raw.githubusercontent.com/oracle/learning-library/master/common/images/console/developer-resmgr-stacks.png " ")
 
 5. Click **Create Stack**.
-    ![](./images/create-stack.png " ")
+    ![Create Stack](./images/create-stack.png " ")
 
-6.  Select **My Configuration**, choose the **.ZIP FILE** button, click the **Browse** link and select the zip file (livelabs-db19ccompute-0812.zip) that you downloaded. Click **Select**.
+6.  Select **My Configuration**, choose the **.zip file** button, click the **Browse** link and select the zip file (livelabs-db19ccompute-0812.zip) that you downloaded. Click **Select**.
 
-   ![](./images/zip-file.png " ")
+   ![Select Zip File](./images/zip-file.png " ")
 
 7. Enter the name of your choice.  We suggest livelabs19c.  Click **Next**.
    ![Create a stack](images/workshop-001.png " ")
 8. Accept the region and select your compartment.  Select an **availability domain** from the drop down.
    ![Create a stack](images/workshop-002.png " ")
 9. Paste the SSH key you created in the previous lab.
-   ![Create a stack](images/workshop-003.png " ")
+   ![Create a stack](images/paste-ssh-key.png " ")
 10. Scroll down and select the **VMStandard.E2.4**.  *Note: Make sure you select the 2.4 version.  It has enough memory to run the database 19c binaries*
     ![Create a stack](images/workshop-004.png " ")
 11. Accept the network and click **Next**.
@@ -70,25 +70,32 @@ If you already have a VCN created, skip this step and proceed to *STEP 3*.
    ![Create a stack](images/workshop-010.png " ")
    ![Create a stack](images/workshop-11.png " ")
 
-*Note:  If you encounter any errors with this step, please see the Troubleshooting Tips in the appendix. 
+>**Note:** If you encounter any errors with this step, please see the Troubleshooting Tips in the appendix.
 
-## Task 3: Gather compute instance details
+## Task 3: Gather Compute Instance Details
 1. Click the **Navigation Menu** in the upper left, navigate to **Compute**, and select **Instances**.
 
 	![](https://raw.githubusercontent.com/oracle/learning-library/master/common/images/console/compute-instances.png " ")
 
 2. Look for the instance you just created and jot down the public IP address.
-    
+
+    <if type="freetier">
+    If you are running the workshop on your own tenancy, the instance you just created is *Workshop*.
+    ![Instance Public IP](images/instance-public-ip.png " ")
+
+    Otherwise, you will see the screen as below:
+    </if>
+
     ![Create a stack](images/workshop-012.png " ")
 
-## Task 4: Connect to your instance
+## Task 4: Connect to Your Instance
 
 There are multiple ways to connect to your cloud instance.  Choose the way to connect to your cloud instance that matches the SSH Key you generated.  *(i.e If you created your SSH Keys in cloud shell, choose cloud shell)*
 
 - Oracle Cloud Shell
 - MAC or Windows CYCGWIN Emulator
 - Windows Using Putty
-  
+
 ### Oracle Cloud Shell
 
 1. To re-start the Oracle Cloud shell, go to your Cloud console and click the cloud shell icon to the right of the region.  *Note: Make sure you are in the region you were assigned*
@@ -98,20 +105,20 @@ There are multiple ways to connect to your cloud instance.  Choose the way to co
 2.  Go to **Compute** -> **Instances** and select the instance you created (make sure you choose the correct compartment)
 3.  On the instance homepage, find the Public IP address for your instance.
 
-    ![](./images/db19c-freetier-step5-1.png " ")
-4.  Enter the command below to login to your instance.    
+    ![Public IP](./images/db19c-freetier-step5-1.png " ")
+4.  Enter the command below to login to your instance.
     ````
     ssh -i ~/.ssh/<sshkeyname> opc@<Your Compute Instance Public IP Address>
     ````
 
-    *Note: The angle brackets <> should not appear in your code.*
+    >**Note:** The angle brackets <> should not appear in your code.
 5.  When prompted, answer **yes** to continue connecting.
 
-    ![Create a stack](images/workshop-013.png " ")      
+    ![Create a stack](images/ssh.png " ")
 
 6.  Continue to the *next Step* on the left hand menu.
 
-*Note:  If you encounter any errors with this step, please see the Troubleshooting Tips in the appendix. 
+>**Note:**  If you encounter any errors with this step, please see the Troubleshooting Tips in the appendix.
 
 ### MAC or Windows CYGWIN Emulator
 1.  Go to **Compute** -> **Instances** and select the instance you created (make sure you choose the correct compartment)
@@ -126,11 +133,11 @@ There are multiple ways to connect to your cloud instance.  Choose the way to co
 
     ![](./images/cloudshelllogin.png " ")
 
-    *Note: The angle brackets <> should not appear in your code.*
+    >**Note:** The angle brackets <> should not appear in your code.
 
 4.  After successfully logging in, proceed to the *next Step* on the left hand menu.
 
-*Note:  If you encounter any errors with this step, please see the Troubleshooting Tips in the appendix. 
+>**Note:** If you encounter any errors with this step, please see the Troubleshooting Tips in the appendix.
 
 ### Windows using Putty
 
@@ -161,20 +168,20 @@ There are multiple ways to connect to your cloud instance.  Choose the way to co
 
 8. Click Open to begin your session with the instance.
 
-*Note:  If you encounter any errors with this step, please see the Troubleshooting Tips in the appendix. 
+>**Note:** If you encounter any errors with this step, please see the Troubleshooting Tips in the appendix.
 
-## Task 5: Verify the ORCL database is up
+## Task 5: Verify the ORCL Database is up
 
 Once you deploy your compute instance, tail the log to determine when the database has been configured and is available for use.
-1.  From your connected session of choice **tail** the last 10 lines of the **dbsingle.log** file.  This file configures the database.  
+1.  From your connected session of choice **tail** the last 10 lines of the **dbsingle.log** file.  This file configures the database.
     ````
     <copy>
     tail -10 /u01/ocidb/buildsingle1.log
     </copy>
     ````
-    ![](./images/workshop-014.png " ")
+    ![Result of Tail 10](./images/tail.png " ")
 
-*Note:  If you encounter any errors with this step, please see the Troubleshooting Tips in the appendix. 
+    >**Note:** If you encounter any errors with this step, please see the Troubleshooting Tips in the appendix.
 
 2. Run the following command to verify the database with the SID **ORCL** is up and running
 
@@ -220,25 +227,25 @@ Once you deploy your compute instance, tail the log to determine when the databa
     </copy>
     ````
     ![](./images/sqlplus.png " ")
-*Note:  If you encounter any errors with this step, please see the Troubleshooting Tips in the appendix. 
+    >**Note:** If you encounter any errors with this step, please see the Troubleshooting Tips in the appendix. 
 
 7.  Exit the sqlplus session and switch back to the opc user.  Verify that you are now the opc user.
 
-    ```` 
+    ````
     SQL> <copy>exit
     </copy>
     ````
 
-    ```` 
-    [oracle@server ~]$ <copy>exit
+    ````
+    [oracle@workshop ~]$ <copy>exit
     whoami
     </copy>
     ````
     ![](./images/whoami.png " ")
-    
+
 Congratulations!  You now have a fully functional Oracle Database 19c instance (ORCL) running on Oracle Cloud Compute.  
 
-You may now [proceed to the next lab](#next).
+You may now **proceed to the next lab**.
 
 ## Appendix:  Teraform and Resource Manager
 Terraform is a tool for building, changing, and versioning infrastructure safely and efficiently.  Configuration files describe to Terraform the components needed to run a single application or your entire datacenter.  In this lab a configuration file has been created for you to build network and compute components.  The compute component you will build creates an image out of Oracle's Cloud Marketplace.  This image is running Oracle Linux 7.
@@ -334,7 +341,6 @@ Reload your browser
 
 
 ## Acknowledgements
-- **Author** - LiveLabs Team, Senior Director, DB Product Management
-- **Contributors** - Sanjay Narvekar, Troy Anthony, Anoosha Pilli, Arabella Yao, Jeffrey Malcolm Jr.
-- **Last Updated By/Date** - Kamryn Vinson, June 2021
-
+- **Author** - LiveLabs Team
+- **Contributors** - Sanjay Narvekar, Troy Anthony, Anoosha Pilli, Arabella Yao, Kamryn Vinson, Jeffrey Malcolm Jr.
+- **Last Updated By/Date** - Arabella Yao, April 2022

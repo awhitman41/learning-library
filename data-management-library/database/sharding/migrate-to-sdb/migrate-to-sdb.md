@@ -49,7 +49,7 @@ Before the existing database can be migrated to the sharded database, you must d
 2. Download the sharded demo schema SQL scripts `sdb-app-schema.sql`.
 
     ```
-    [oracle@cata ~]$ <copy>wget https://objectstorage.us-ashburn-1.oraclecloud.com/p/ZkoZi3PVSwYGZAscZNDRzOLlqdKypfJEnM15czI6ud6nM5POU8MHkcXHXnp1NJ27/n/c4u04/b/data-management-library-files/o/Oracle%20Sharding/sdb-app-schema.sql</copy>
+    [oracle@cata ~]$ <copy>wget https://objectstorage.us-ashburn-1.oraclecloud.com/p/VEKec7t0mGwBkJX92Jn0nMptuXIlEpJ5XJA-A6C9PymRgY2LhKbjWqHeB5rVBbaV/n/c4u04/b/livelabsfiles/o/data-management-library-files/Oracle%20Sharding/sdb-app-schema.sql</copy>
     ```
 
     

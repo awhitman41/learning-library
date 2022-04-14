@@ -69,12 +69,16 @@ Provision a service instance of VB Studio to develop and deploy your web app. Yo
 
    ![](./images/access-instance-vbs.png)
 
-   The VB Studio console opens in a new browser tab. When you first log in, you see the Welcome page with a link to an introductory video, along with a news feed of additional screens. Close **X** to dismiss the news feed and expand your work area.
+   The VB Studio console opens in a new browser tab, on the Organization page in the Projects tab.
    ![](./images/vbs-home.png)
 
-   You are on the Organization page in the Projects tab.
+   When you first log in, you see the Welcome page with a link to an introductory video, along with a news feed of additional screens. Close **X** to dismiss the news feed and expand your work area.
 
-   Before you create a project, you might want to check if your instance is preconfigured with a built-in Oracle Cloud Infrastructure (OCI) account, which lets you access resources to run builds in VB Studio. This free account isn't available in all OCI regions and data centers, so click the **OCI Account** tab to check if your instance includes it. If you see something similar to this image, it means your instance is connected to the built-in free account:
+   It's also a good idea to set your preferences. To do this, click the user initials in the upper right corner, and select **Preferences**. Use this page to change your display name, set an avatar, change the email address, or set email notification preferences. The email address (yours as well as that of any teammates you add to the project) must be verified and notifications set properly to be able to receive email.
+
+   ![](./images/preferences.png)
+
+   You are now ready to create a project but before you do that, you might want to check if your instance is preconfigured with a built-in Oracle Cloud Infrastructure (OCI) account, which lets you access resources to run builds in VB Studio. This free account isn't available in all OCI regions and data centers, so click the **OCI Account** tab to check if your instance includes it. If you see something similar to this image, it means your instance is connected to the built-in free account:
 
   ![](./images/oci-free-account.png)
 
@@ -257,5 +261,5 @@ With all the necessary information copied, connect your VB Studio instance to th
     You may **proceed to the next lab**.
 
 ## Acknowledgements
-* **Created By/Date** - Sheryl Manoharan, VB Studio User Assistance, November 2021
-<!--* **Last Updated By** - October 2021 --!>
+* **Author** - Sheryl Manoharan, VB Studio User Assistance, November 2021
+* **Last Updated By/Date** - Sheryl Manoharan, February 2022

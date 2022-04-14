@@ -32,6 +32,8 @@ This lab assumes that you have:
 
 ## Task 1: Verify that the default listener (LISTENER) is started on the `workshop-installed` compute instance
 
+> **NOTE:** Unless otherwise stated, all passwords will be `Ora4U_1234`. When copying and pasting a command that includes a password, please replace the word `password` with `Ora4U_1234`. This only applies to instances created through OCI Resource Manager with our provided terraform scripts.
+
 1. On the desktop of your `workshop-installed` compute instance, open a terminal window. You are signed in to the Linux operating system as the `oracle` user.
 
 2. Set the Oracle environment variables. At the prompt, enter **CDB1**.
@@ -161,7 +163,7 @@ This lab assumes that you have:
     ```
     $ <copy>mkdir -p ~/labs/19cnf</copy>
     $ <copy>cd ~/labs/19cnf</copy>
-    $ <copy>wget https://objectstorage.us-ashburn-1.oraclecloud.com/p/69xu1SJ57wn73nV-T9dsSTDyY-w71d2o4iCoNkM2ceW9-rkqPFUqCbp7LeFwXQje/n/c4u04/b/labfiles/o/19cnf-lab-files.zip</copy>
+    $ <copy>wget https://objectstorage.us-ashburn-1.oraclecloud.com/p/jyHA4nclWcTaekNIdpKPq3u2gsLb00v_1mmRKDIuOEsp--D6GJWS_tMrqGmb85R2/n/c4u04/b/livelabsfiles/o/labfiles/19cnf-lab-files.zip</copy>
     $ <copy>unzip -q 19cnf-lab-files.zip</copy>
     $ <copy>chmod -R +x ~/labs/19cnf</copy>
     $ <copy>ls -an</copy>

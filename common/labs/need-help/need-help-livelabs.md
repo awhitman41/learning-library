@@ -73,3 +73,25 @@ If any of these three conditions are true, some ports in your network may be clo
 2. If you are connected to a corporate network, try switching to a public or a "clear" network if allowed.
 
 3. Alternatively, contact your IT Administrator to see if adding exceptions to your network or firewall would be viable.
+
+
+## Cannot Access Cloud Shell?
+
+   ![Policy Missing Error](images/policy-missing.png " ")
+If the workshop asks you to open cloud shell, but you cannot access it, please make sure that you are in the compartment assigned to you.
+
+1. Click the **Navigation Menu** in the upper left, navigate to **Compute**, and select **Instances**.
+
+   ![Compute Instances](https://raw.githubusercontent.com/oracle/learning-library/master/common/images/console/compute-instances.png " ")
+
+2. Select the compartment you were assigned. Expand the **root** compartment and then the **Livelabs** compartment. Select the compartment assigned to you.
+   ![Select Compartment](images/select-compartment.png " ")
+
+3. Relaunch your cloud shell. You should be able to open your cloud shell.
+   ![Cloud Shell](https://raw.githubusercontent.com/oracle/learning-library/master/common/images/console/cloud-shell.png " ")
+
+
+## Cannot Connect to the Marketplace compute instance using private SSH key?
+
+   ![Policy Missing Error](images/private-ssh-key-denied.png " ")
+1. If you cannot connect to your compute instance using your private SSH key, please make sure the private key you provide and use matches the public SSH key you provide when you reserve the workshop on LiveLabs.

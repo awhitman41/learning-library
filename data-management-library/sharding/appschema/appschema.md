@@ -115,7 +115,7 @@ Example: Database connection details by passing a sharding key:
 
 For more details for the eShop code snippet click [here] (https://github.com/nishakau/ShardingSampleCode.git)
 
-You may now [proceed to the next lab](#next).
+You may now proceed to the next lab.
 
 ## Learn More
 
